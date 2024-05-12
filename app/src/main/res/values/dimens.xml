@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="visible_vertical_size">42dp</dimen>
+    <dimen name="visible_horizontal_size">28dp</dimen>
+    <dimen name="invisible_horizontal_size">19dp</dimen>
+</resources>

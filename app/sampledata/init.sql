@@ -2,6 +2,17 @@ drop database if exists AndroidDB;
 create database if not exists AndroidDB default charset = utf8 collate = utf8_general_ci;
 use AndroidDB;
 
+# 管理员表
+create table if not exists admins
+(
+    admin_id       int primary key auto_increment comment '管理员id',
+    admin_name     varchar(50) comment '管理员姓名',
+    admin_phone    varchar(50) comment '管理员电话',
+    admin_password varchar(50) comment '管理员密码'
+) engine = InnoDB
+  auto_increment = 1000
+  default charset = utf8;
+
 # 教师表
 create table if not exists teachers
 (
@@ -47,17 +58,11 @@ create table if not exists students
 # 课程信息表
 create table if not exists courses
 (
-    course_id         int primary key auto_increment comment '课程id',
-    course_name       varchar(50) comment '课程名称',
-    teacher_id        int comment '教师id',
-    course_time       varchar(50) comment '上课时间',
-    course_place      varchar(50) comment '上课地点',
-    course_credit     int comment '学分',
-    course_hour       int comment '学时',
-    course_week       int comment '周数',
-    course_start_time date comment '开课时间',
-    course_end_time   date comment '结课时间',
-    foreign key (teacher_id) references teachers (teacher_id)
+    course_id     int primary key auto_increment comment '课程id',
+    course_name   varchar(50) comment '课程名称',
+    course_credit int comment '学分',
+    course_hour   int comment '学时',
+    course_week   int comment '周数'
 ) engine = InnoDB
   auto_increment = 1000
   default charset = utf8;
@@ -65,10 +70,17 @@ create table if not exists courses
 # 课程安排表
 create table if not exists schedules
 (
-    schedule_id int primary key auto_increment comment '课程表id',
-    student_id  int comment '学生id',
-    course_id   int comment '课程id',
+    schedule_id  int primary key auto_increment comment '课程表id',
+    student_id   int comment '学生id',
+    teacher_id   int comment '教师id',
+    course_id    int comment '课程id',
+    course_day  int comment '上课时间 1-7分别代表周一到周日',
+    course_time int comment '上课时间 1-7分别代表第一节到第七节课',
+    course_place varchar(50) comment '上课地点',
+    years        int comment '学年',
+    terms        int comment '学期 0:上学期 1:下学期',
     foreign key (student_id) references students (student_id),
+    foreign key (teacher_id) references teachers (teacher_id),
     foreign key (course_id) references courses (course_id)
 ) engine = InnoDB
   auto_increment = 1000
