@@ -114,23 +114,22 @@
             app:layout_constraintTop_toBottomOf="@+id/passwordLayout"
             android:minHeight="48dp"/>
 
-    <Button
-            android:id="@+id/login"
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/login"
-            app:layout_constraintEnd_toStartOf="@+id/reset"
+            app:layout_constraintTop_toBottomOf="@+id/identitySpinner"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/identitySpinner"/>
-
-    <Button
-            android:id="@+id/reset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/reset"
-            app:layout_constraintStart_toEndOf="@+id/login"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/identitySpinner"/>
+            android:layout_marginTop="16dp">
+
+            <Button
+                    android:id="@+id/LoginButton"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
