@@ -7,7 +7,10 @@ create table if not exists admins
 (
     admin_id       int primary key auto_increment comment '管理员id',
     admin_name     varchar(50) comment '管理员姓名',
-    admin_password varchar(50) comment '管理员密码'
+    admin_password varchar(50) comment '管理员密码',
+    gender         int comment '性别 0: 男 1: 女',
+    birthday       date comment '生日',
+    start_time     date comment '入职时间'
 ) engine = InnoDB
   auto_increment = 1000
   default charset = utf8;
@@ -18,7 +21,7 @@ create table if not exists teachers
     teacher_id       int primary key auto_increment comment '教师id',
     teacher_name     varchar(50) comment '教师姓名',
     teacher_password varchar(50) comment '教师密码',
-    gender           int comment '性别',
+    gender           int comment '性别 0: 男 1: 女',
     birthday         date comment '生日',
     start_time       date comment '入职时间'
 ) engine = InnoDB
@@ -31,7 +34,7 @@ create table if not exists students
     student_id       int primary key auto_increment comment '学生id',
     student_name     varchar(50) comment '学生姓名',
     student_password varchar(50) comment '学生密码',
-    gender           int comment '性别',
+    gender           int comment '性别 0: 男 1: 女',
     birthday         date comment '生日',
     start_year       int comment '入学年份',
     years            int comment '学年制'
@@ -85,9 +88,15 @@ create table if not exists scores
   default charset = utf8;
 
 # 测试数据
-insert into admins (admin_name, admin_password) values ('admin', 'e10adc3949ba59abbe56e057f20f883eLJM');
-insert into teachers (teacher_name, teacher_password,gender,birthday,start_time) values ('teacher', 'e10adc3949ba59abbe56e057f20f883eLJM',1,'1990-01-01','2010-08-01');
-insert into students (student_name, student_password,gender,birthday,start_year,years) values ('student', 'e10adc3949ba59abbe56e057f20f883eLJM',1,'2000-10-29',2024,4);
-insert into courses (course_name, course_credit, course_hour, course_week,course_type) values ('移动终端应用开发', 3, 32, 18,0);
-insert into schedules (teacher_id, course_id, course_day, course_time, course_place, years, terms) values (1000, 1000, 4, 5, 'S104', 2023, 1);
-insert into scores (student_id, course_id, schedule_id, score) values (1000, 1000, 1000, 90);
+insert into admins (admin_name, admin_password, gender, birthday, start_time)
+values ('admin', 'e10adc3949ba59abbe56e057f20f883eLJM', 0, '1995-01-01', '2015-08-01');
+insert into teachers (teacher_name, teacher_password, gender, birthday, start_time)
+values ('teacher', 'e10adc3949ba59abbe56e057f20f883eLJM', 1, '1990-01-01', '2010-08-01');
+insert into students (student_name, student_password, gender, birthday, start_year, years)
+values ('student', 'e10adc3949ba59abbe56e057f20f883eLJM', 0, '2000-10-29', 2024, 4);
+insert into courses (course_name, course_credit, course_hour, course_week, course_type)
+values ('移动终端应用开发', 3, 32, 18, 0);
+insert into schedules (teacher_id, course_id, course_day, course_time, course_place, years, terms)
+values (1000, 1000, 4, 5, 'S104', 2023, 1);
+insert into scores (student_id, course_id, schedule_id, score)
+values (1000, 1000, 1000, 90);
