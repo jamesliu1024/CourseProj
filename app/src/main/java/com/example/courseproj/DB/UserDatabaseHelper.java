@@ -4,9 +4,11 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-// 用来创建存储用户数据的本地数据库
-// 数据库名：user_data.db
-// 数据表：student_data, teacher_data, admin_data
+/**
+ * 用来创建存储用户数据的本地数据库
+ * 数据库名：user_data.db
+ * 数据表：student_data, teacher_data, admin_data
+ */
 public class UserDatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "user_data.db";
     private static final int DATABASE_VERSION = 1;
