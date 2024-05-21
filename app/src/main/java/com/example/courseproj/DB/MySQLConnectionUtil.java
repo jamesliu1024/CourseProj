@@ -11,7 +11,7 @@ public class MySQLConnectionUtil {
     private static final String PORT = "55005";
     private static final String DB_NAME = "AndroidDB";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "123456";
+    private static final String PASSWORD = "12345678";
     private static final String DB_URL = "jdbc:mysql://" + IP + ":" + PORT + "/" + DB_NAME + "?useSSL=false";
 
     public static Connection getConnection() throws SQLException {
