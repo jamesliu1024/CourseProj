@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+<!--删除信息提交后的确认页面-->
+
+<!--提示信息-->
+  <TextView
+      android:id="@+id/text_view_dialog_message"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="是否确认删除?"
+      android:textSize="18sp"
+      android:textStyle="bold"/>
+<!--水平分割线-->
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:background=""/>
+<!--确认和取消按钮-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:padding="16dp">
+        <Button
+            android:id="@+id/button_dialog_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="确认"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:minWidth="96dp"/>
+        <Button
+            android:id="@+id/button_dialog_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="取消"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:minWidth="96dp"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+</LinearLayout>
