@@ -12,7 +12,12 @@ public class MySQLConnectionUtil {
     private static final String DB_NAME = "AndroidDB";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "12345678";
-    private static final String DB_URL = "jdbc:mysql://" + IP + ":" + PORT + "/" + DB_NAME + "?useSSL=false";
+    private static final String DB_URL = "jdbc:mysql://" + IP + ":" + PORT + "/" + DB_NAME +
+            "?useSSL=false&"  + // 不使用SSL
+            "allowPublicKeyRetrieval=true&" +  // 允许公钥检索
+            "serverTimezone=UTC&" + // 服务器时区
+            "useUnicode=true&" + // 使用Unicode字符集
+            "characterEncoding=utf-8"; // 字符编码
 
     public static Connection getConnection() throws SQLException {
         Connection connection = null;

@@ -1,6 +1,7 @@
 package com.example.courseproj;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -20,6 +21,7 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.courseproj.DB.MD5;
 import com.example.courseproj.DB.MySQLConnectionUtil;
+import com.example.courseproj.Student.StudentActivity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -50,13 +52,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-
-        // 将状态栏的背景颜色设置为透明
-        // 将窗口的布局参数设置为 FLAG_LAYOUT_NO_LIMITS，这将使状态栏变为透明
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window window = getWindow();
-            window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        }
+        initView();
 
         layout = findViewById(R.id.bgLayout);
         loginAccount = findViewById(R.id.LoginAccount);
@@ -64,10 +60,6 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.LoginButton);
         identitySpinner = findViewById(R.id.identitySpinner);
 
-        // 设置渐变动画
-        anim = (AnimationDrawable) layout.getBackground();
-        anim.setEnterFadeDuration(2000); // 设置渐入效果持续时间
-        anim.setExitFadeDuration(4000); // 设置渐出效果持续时间
 
         // 点击密码框右侧的图标，切换密码的可见性
         loginPassword.setOnTouchListener(new View.OnTouchListener() {
@@ -169,7 +161,8 @@ public class LoginActivity extends AppCompatActivity {
      * 通过数据库查询，判断用户输入的账号和密码是否正确
      * 如果用户登录成功，则将用户的登录信息存储到SharedPreferences中
      * 跳转到相应的界面
-     * @param user_id 用户输入的账号
+     *
+     * @param user_id  用户输入的账号
      * @param password 用户输入的密码
      * @param identity 0:学生 1:老师 2:管理员
      */
@@ -252,18 +245,21 @@ public class LoginActivity extends AppCompatActivity {
                                 // 跳转到相应的界面
                                 if (identity == 0) {
                                     // TODO 跳转到学生界面
-                                    // Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
-                                    // startActivity(intent);
-                                    Toast.makeText(LoginActivity.this, "学生界面", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
+                                    startActivity(intent);
+                                    finish();
+//                                    Toast.makeText(LoginActivity.this, "学生界面", Toast.LENGTH_SHORT).show();
                                 } else if (identity == 1) {
                                     // TODO 跳转到老师界面
                                     // Intent intent = new Intent(LoginActivity.this, TeacherActivity.class);
                                     // startActivity(intent);
+//                                    finish();
                                     Toast.makeText(LoginActivity.this, "老师界面", Toast.LENGTH_SHORT).show();
                                 } else if (identity == 2) {
                                     // TODO 跳转到管理员界面
                                     // Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                                     // startActivity(intent);
+//                                    finish();
                                     Toast.makeText(LoginActivity.this, "管理员界面", Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -323,5 +319,25 @@ public class LoginActivity extends AppCompatActivity {
         editor.apply();
     }
 
+    /**
+     * 初始化视图
+     * 设置状态栏透明
+     * 设置渐变动画
+     */
+    private void initView() {
+        // 将状态栏的背景颜色设置为透明
+        // 将窗口的布局参数设置为 FLAG_LAYOUT_NO_LIMITS，这将使状态栏变为透明
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window window = getWindow();
+            window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
+
+        layout = findViewById(R.id.bgLayout);
+
+        // 设置渐变动画
+        anim = (AnimationDrawable) layout.getBackground();
+        anim.setEnterFadeDuration(2000); // 设置渐入效果持续时间
+        anim.setExitFadeDuration(4000); // 设置渐出效果持续时间
+    }
 
 }

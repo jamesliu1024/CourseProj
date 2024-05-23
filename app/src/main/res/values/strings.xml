@@ -14,6 +14,7 @@
     <string name="account_password_error">账号或密码错误</string>
     <string name="account_password_empty">账号或密码为空</string>
     <string name="account_password_empty_error">账号或密码为空</string>
+    <string name="Logout">退出登录</string>
     <string-array name="identity_array">
         <item>学生</item>
         <item>老师</item>

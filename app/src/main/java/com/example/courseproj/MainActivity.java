@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.courseproj.Student.StudentActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -30,20 +31,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // 将状态栏的背景颜色设置为透明
-        // 将窗口的布局参数设置为 FLAG_LAYOUT_NO_LIMITS，这将使状态栏变为透明
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window window = getWindow();
-            window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        }
+        initView();
 
         layout = findViewById(R.id.bgLayout);
-
-        // 设置渐变动画
-        anim = (AnimationDrawable) layout.getBackground();
-        anim.setEnterFadeDuration(2000); // 设置渐入效果持续时间
-        anim.setExitFadeDuration(4000); // 设置渐出效果持续时间
 
         // 创建一个SharedPreferences对象
         SharedPreferences sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE);
@@ -81,19 +71,22 @@ public class MainActivity extends AppCompatActivity {
 
             // 根据用户的身份跳转到相应的界面
             if (identity == 0) {
-                // TODO 跳转到学生界面
-//                Intent intent = new Intent(MainActivity.this, StudentActivity.class);
-//                startActivity(intent);
-                Toast.makeText(MainActivity.this, "学生界面", Toast.LENGTH_SHORT).show();
+                // 跳转到学生界面
+                Intent intent = new Intent(MainActivity.this, StudentActivity.class);
+                startActivity(intent);
+                finish();
+//                Toast.makeText(MainActivity.this, "学生界面", Toast.LENGTH_SHORT).show();
             } else if (identity == 1) {
                 // TODO 跳转到老师界面
 //                Intent intent = new Intent(MainActivity.this, TeacherActivity.class);
 //                startActivity(intent);
+//                finish();
                 Toast.makeText(MainActivity.this, "老师界面", Toast.LENGTH_SHORT).show();
             } else if (identity == 2) {
                 // TODO 跳转到管理员界面
 //                Intent intent = new Intent(MainActivity.this, AdminActivity.class);
 //                startActivity(intent);
+//                finish();
                 Toast.makeText(MainActivity.this, "管理员界面", Toast.LENGTH_SHORT).show();
             }
         } else {
@@ -120,6 +113,27 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         if (anim != null && anim.isRunning())
             anim.stop();
+    }
+
+    /**
+     * 初始化视图
+     * 设置状态栏透明
+     * 设置渐变动画
+     */
+    private void initView() {
+        // 将状态栏的背景颜色设置为透明
+        // 将窗口的布局参数设置为 FLAG_LAYOUT_NO_LIMITS，这将使状态栏变为透明
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window window = getWindow();
+            window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
+
+        layout = findViewById(R.id.bgLayout);
+
+        // 设置渐变动画
+        anim = (AnimationDrawable) layout.getBackground();
+        anim.setEnterFadeDuration(2000); // 设置渐入效果持续时间
+        anim.setExitFadeDuration(4000); // 设置渐出效果持续时间
     }
 
 }
