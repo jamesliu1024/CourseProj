@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/navigation_courses"
+            android:icon="@drawable/ic_courses"
+            android:title="课程表" />
+    <item
+            android:id="@+id/navigation_addCourses"
+            android:icon="@drawable/ic_courses"
+            android:title="选课" />
+    <item
+            android:id="@+id/navigation_profile"
+            android:icon="@drawable/ic_courses"
+            android:title="个人信息" />
+</menu>
