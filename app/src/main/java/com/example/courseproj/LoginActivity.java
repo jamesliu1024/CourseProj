@@ -1,9 +1,7 @@
 package com.example.courseproj;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.drawable.AnimationDrawable;
@@ -19,8 +17,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.courseproj.DB.MD5;
-import com.example.courseproj.DB.MySQLConnectionUtil;
+import com.example.courseproj.Common.DB_SQLiteDB;
+import com.example.courseproj.Common.MD5;
+import com.example.courseproj.Common.DB_MySQLConnectionUtil;
+import com.example.courseproj.Common.NetworkUtil;
 import com.example.courseproj.Student.StudentActivity;
 
 import java.sql.Connection;
@@ -126,27 +126,31 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // 检查网络状态
+                int networkStatus = NetworkUtil.checkNetworkStatus(LoginActivity.this);
+                if (networkStatus == -1) { // 无网络权限
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(LoginActivity.this, "无网络权限", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    return;
+                } else if (networkStatus == 0) { // 网络异常
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(LoginActivity.this, "无法连接到服务器，请检查网络是否通畅", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    return;
+                }
                 String user_id = loginAccount.getText().toString();
                 String password = loginPassword.getText().toString();
                 handleLogin(user_id, password, identity);
             }
         });
-    }
-
-    // 开始播放动画：在onResume方法中开始播放渐变动画
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (anim != null && !anim.isRunning())
-            anim.start();
-    }
-
-    // 停止播放动画：在onPause方法中停止播放渐变动画
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (anim != null && anim.isRunning())
-            anim.stop();
     }
 
     // 设置图片大小
@@ -174,7 +178,7 @@ public class LoginActivity extends AppCompatActivity {
                 PreparedStatement preparedStatement = null;
                 ResultSet resultSet = null;
                 try {
-                    connection = MySQLConnectionUtil.getConnection();
+                    connection = DB_MySQLConnectionUtil.getConnection();
                     if (connection == null) {
                         throw new SQLException("无法连接到数据库");
                     }
@@ -199,8 +203,6 @@ public class LoginActivity extends AppCompatActivity {
                     preparedStatement.setString(2, md5_password);
                     resultSet = preparedStatement.executeQuery();
                     if (resultSet.next()) {
-                        //  TEST 提示用户登录成功
-                        String login_success_test = identity + "\n" + user_id + "\n" + password + "\n" + md5_password;
 
                         String user_name;
                         int gender;
@@ -285,7 +287,7 @@ public class LoginActivity extends AppCompatActivity {
                     });
                 } finally {
                     // 关闭资源
-                    MySQLConnectionUtil.MySQL_DB_close(connection, preparedStatement, resultSet);
+                    DB_MySQLConnectionUtil.MySQL_DB_close(connection, preparedStatement, resultSet);
                 }
             }
         }).start();
@@ -317,6 +319,16 @@ public class LoginActivity extends AppCompatActivity {
 
         // 使用commit()或apply()方法来保存更改
         editor.apply();
+
+        // 创建一个新的线程来创建本地数据库
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                DB_SQLiteDB db = new DB_SQLiteDB();
+                SQLiteDatabase sqlite = db.getSqliteObject(LoginActivity.this);
+                db.close();
+            }
+        }).start();
     }
 
     /**
@@ -338,6 +350,14 @@ public class LoginActivity extends AppCompatActivity {
         anim = (AnimationDrawable) layout.getBackground();
         anim.setEnterFadeDuration(2000); // 设置渐入效果持续时间
         anim.setExitFadeDuration(4000); // 设置渐出效果持续时间
+
+        // 使用post()方法来延迟启动动画
+        layout.post(new Runnable() {
+            @Override
+            public void run() {
+                anim.start();
+            }
+        });
     }
 
 }
