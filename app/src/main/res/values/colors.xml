@@ -2,8 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="translucent">#00000000</color> <!-- 透明 -->
+    <color name="translucent_black">#19000000</color> <!-- 10%透明黑 -->
+    <color name="translucent_white">#33FFFFFF</color> <!-- 20%透明白 -->
     <color name="gray">#FF808080</color> <!-- 灰色 -->
     <color name="dark_gray">#515151</color> <!-- 深灰色 -->
+    <color name="colorPrimaryHalfTranslucent">#80EEE1E1</color> <!-- 淡粉色 半透明 -->
     <color name="colorPrimary">#EEE1E1</color> <!-- 淡粉色 -->
     <color name="colorPrimaryDark">#00574B</color> <!-- 深绿色 -->
     <color name="colorAccent">#D81B60</color> <!-- 紫红色 -->

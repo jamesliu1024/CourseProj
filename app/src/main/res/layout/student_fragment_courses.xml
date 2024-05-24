@@ -4,12 +4,11 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="这是课程页面"
-            android:textSize="20sp" />
-
     <!-- 在这里添加你的布局 -->
+    <ListView
+            android:id="@+id/lv_courses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
 </LinearLayout>

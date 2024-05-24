@@ -1,4 +1,4 @@
-package com.example.courseproj.DB;
+package com.example.courseproj.Common;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

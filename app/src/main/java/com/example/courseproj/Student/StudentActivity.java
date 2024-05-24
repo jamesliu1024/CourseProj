@@ -74,5 +74,13 @@ public class StudentActivity extends AppCompatActivity {
         anim = (AnimationDrawable) layout.getBackground();
         anim.setEnterFadeDuration(2000); // 设置渐入效果持续时间
         anim.setExitFadeDuration(4000); // 设置渐出效果持续时间
+
+        // 使用post()方法来延迟启动动画
+        layout.post(new Runnable() {
+            @Override
+            public void run() {
+                anim.start();
+            }
+        });
     }
 }

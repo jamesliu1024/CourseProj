@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initView();
 
-        layout = findViewById(R.id.bgLayout);
 
         // 创建一个SharedPreferences对象
         SharedPreferences sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE);
@@ -99,21 +98,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // 开始播放动画：在onResume方法中开始播放渐变动画
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (anim != null && !anim.isRunning())
-            anim.start();
-    }
-
-    // 停止播放动画：在onPause方法中停止播放渐变动画
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (anim != null && anim.isRunning())
-            anim.stop();
-    }
+//    // 开始播放动画：在onResume方法中开始播放渐变动画
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        if (anim != null && !anim.isRunning())
+//            anim.start();
+//    }
+//
+//    // 停止播放动画：在onPause方法中停止播放渐变动画
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        if (anim != null && anim.isRunning())
+//            anim.stop();
+//    }
 
     /**
      * 初始化视图
@@ -134,6 +133,14 @@ public class MainActivity extends AppCompatActivity {
         anim = (AnimationDrawable) layout.getBackground();
         anim.setEnterFadeDuration(2000); // 设置渐入效果持续时间
         anim.setExitFadeDuration(4000); // 设置渐出效果持续时间
+
+        // 使用post()方法来延迟启动动画
+        layout.post(new Runnable() {
+            @Override
+            public void run() {
+                anim.start();
+            }
+        });
     }
 
 }
