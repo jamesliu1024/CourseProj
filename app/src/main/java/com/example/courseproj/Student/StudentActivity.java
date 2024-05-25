@@ -72,8 +72,8 @@ public class StudentActivity extends AppCompatActivity {
             }
         });
 
-        // 默认选择CoursesFragment
-        Fragment defaultFragment = new CoursesFragment();
+        // 默认选择ProfileFragment
+        Fragment defaultFragment = new ProfileFragment();
         defaultFragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().replace(R.id.student_fragment_container, defaultFragment).commit();
 
