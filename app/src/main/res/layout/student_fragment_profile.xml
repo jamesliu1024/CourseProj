@@ -6,15 +6,117 @@
               android:id="@+id/student_fragment_profile"
         >
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="这是个人信息页面"
-            android:textSize="20sp" />
+<!--    <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="这是个人信息页面"-->
+<!--            android:textSize="20sp" />-->
 
     <!-- 在这里添加你的布局 -->
+    <TableRow
+        android:layout_marginTop="35dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_student_id"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/profile_student_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="textEnd"/>
+    </TableRow>
 
-<!--    推出登陆按钮-->
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_student_name"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/profile_student_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:texAlignment="viewEnd"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_student_gender"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/profile_student_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:texAlignment="viewEnd"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_start_year"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/profile_start_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:texAlignment="viewEnd"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_years"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/profile_years"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:texAlignment="viewEnd"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_teacher_name"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/profile_teacher_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:texAlignment="viewEnd"/>
+    </TableRow>
+
+    <!--    推出登陆按钮-->
     <Button
             android:id="@+id/btn_logout"
             android:layout_width="wrap_content"

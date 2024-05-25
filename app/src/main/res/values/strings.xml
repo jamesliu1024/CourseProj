@@ -20,6 +20,12 @@
     <string name="tv_course_place">上课地点：</string>
     <string name="tv_course_day">上课时间：</string>
     <string name="tv_course_time">上课星期：</string>
+    <string name="profile_student_id">学号</string>
+    <string name="profile_student_name">姓名</string>
+    <string name="profile_student_gender">性别</string>
+    <string name="profile_start_year">年级</string>
+    <string name="profile_years">学年</string>
+    <string name="profile_teacher_name">辅导员</string>
     <string-array name="identity_array">
         <item>学生</item>
         <item>老师</item>
