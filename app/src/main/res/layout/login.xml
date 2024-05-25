@@ -57,6 +57,7 @@
                 android:minHeight="48dp"
                 android:textColorHint="#546E7A"
                 android:autofillHints=""
+                android:text="1000"
                 />
     </LinearLayout>
 
@@ -87,6 +88,7 @@
                 android:textColorHint="#546E7A"
                 android:autofillHints=""
                 android:drawableEnd="@drawable/invisible"
+                android:text="123"
                 />
     </LinearLayout>
 
