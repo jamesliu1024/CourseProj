@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    >
+<!--添加课程页面-->
+<!--    fragment_add_courses.xml-->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="课程名称："
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/edit_text_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入课程名称"
+            android:textSize="18sp"/>
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="学分："
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/edit_text_credit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入学分"
+            android:textSize="18sp"/>
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="学时："
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/edit_text_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入学时"
+            android:textSize="18sp"/>
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="周数："
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/edit_text_week"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入周数"
+            android:textSize="18sp"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="类型："
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"/>
+
+        <RadioGroup
+            android:id="@+id/course_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/course_type_0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="必修" />
+
+            <RadioButton
+                android:id="@+id/course_type_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选修" />
+        </RadioGroup>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="提交"
+            />
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="返回"
+            android:layout_marginLeft="50dp"/>
+    </TableRow>
+
+</LinearLayout>
