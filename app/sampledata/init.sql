@@ -37,7 +37,9 @@ create table if not exists students
     gender           int comment '性别 0: 男 1: 女',
     birthday         date comment '生日',
     start_year       int comment '入学年份',
-    years            int comment '学年制'
+    years            int comment '学年制',
+    teacher_id       int comment '班主任id',
+    foreign key (teacher_id) references teachers (teacher_id)
 ) engine = InnoDB
   auto_increment = 1000
   default charset = utf8;
@@ -90,8 +92,8 @@ insert into admins (admin_name, admin_password, gender, birthday, start_time)
 values ('admin', '202cb962ac59075b964b07152d234b70LJM', 0, '1995-01-01', '2015-08-01');
 insert into teachers (teacher_name, teacher_password, gender, birthday, start_time)
 values ('王老师', '202cb962ac59075b964b07152d234b70LJM', 1, '1990-01-01', '2010-08-01');
-insert into students (student_name, student_password, gender, birthday, start_year, years)
-values ('刘同学', '202cb962ac59075b964b07152d234b70LJM', 0, '2000-10-29', 2024, 4);
+insert into students (student_name, student_password, gender, birthday, start_year, years, teacher_id)
+values ('刘同学', '202cb962ac59075b964b07152d234b70LJM', 0, '2000-10-29', 2023, 4, 1000);
 # 课程1
 insert into courses (course_name, course_credit, course_hour, course_week, course_type)
 values ('移动终端应用开发', 3, 32, 18, 0);
@@ -128,17 +130,16 @@ INSERT INTO teachers (teacher_name, teacher_password, gender, birthday, start_ti
 ('孙老师', '202cb962ac59075b964b07152d234b70LJM', 0, '1995-04-01', '2022-05-01');
 
 #学生表测试数据  学生id:1001-1009
-INSERT INTO students (student_name, student_password, gender, birthday, start_year, years) VALUES
-('张三', '202cb962ac59075b964b07152d234b70LJM', 0, '2000-01-01', 2018, 4),
-('李四', '202cb962ac59075b964b07152d234b70LJM', 1, '2001-05-10', 2019, 4),
-('王五', '202cb962ac59075b964b07152d234b70LJM', 0, '2002-03-17', 2020, 4),
-('赵六', '202cb962ac59075b964b07152d234b70LJM', 1, '1999-12-25', 2017, 5),
-('陈七', '202cb962ac59075b964b07152d234b70LJM', 0, '2003-09-15', 2021, 2),
-('刘八', '202cb962ac59075b964b07152d234b70LJM', 1, '2004-06-30', 2022, 4),
-('周九', '202cb962ac59075b964b07152d234b70LJM', 0, '2005-11-11', 2023, 4);
-INSERT INTO students (student_name, student_password, gender, birthday, start_year, years) VALUES
-('吴十', '202cb962ac59075b964b07152d234b70LJM', 1, '2006-02-28', 2023, 4),
-('郑十一', '202cb962ac59075b964b07152d234b70LJM', 0, '2007-04-01', 2024, 4);
+INSERT INTO students (student_name, student_password, gender, birthday, start_year, years, teacher_id) VALUES
+('张三', '202cb962ac59075b964b07152d234b70LJM', 0, '2000-01-01', 2018, 4, 1000),
+('李四', '202cb962ac59075b964b07152d234b70LJM', 1, '2001-05-10', 2019, 4, 1001),
+('王五', '202cb962ac59075b964b07152d234b70LJM', 0, '2002-03-17', 2020, 4, 1000),
+('赵六', '202cb962ac59075b964b07152d234b70LJM', 1, '1999-12-25', 2017, 5, 1002),
+('陈七', '202cb962ac59075b964b07152d234b70LJM', 0, '2003-09-15', 2021, 2, 1003),
+('刘八', '202cb962ac59075b964b07152d234b70LJM', 1, '2004-06-30', 2022, 4, 1000),
+('周九', '202cb962ac59075b964b07152d234b70LJM', 0, '2005-11-11', 2023, 4, 1000),
+('吴十', '202cb962ac59075b964b07152d234b70LJM', 1, '2006-02-28', 2023, 4, 1000),
+('郑十一', '202cb962ac59075b964b07152d234b70LJM', 0, '2007-04-01', 2024, 4, 1000);
 
 # 课程信息表测试数据  课程id:1001-1047
 INSERT INTO courses (course_name, course_credit, course_hour, course_week, course_type) VALUES

@@ -13,7 +13,7 @@
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="AndroidDB" uuid="37798a36-fad1-467c-9614-b29401824ec5">
+    <data-source source="LOCAL" name="AndroidDB" uuid="e9fd67e3-9ef5-4dde-9fd4-407e467e24c6">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>

@@ -76,7 +76,8 @@ public class StudentActivity extends AppCompatActivity {
         Fragment defaultFragment = new ProfileFragment();
         defaultFragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().replace(R.id.student_fragment_container, defaultFragment).commit();
-
+        // 设置底部导航栏的默认选项为ProfileFragment对应的菜单项
+        bottomNavigationView.setSelectedItemId(R.id.navigation_profile);
 
     }
 

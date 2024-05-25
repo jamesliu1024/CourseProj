@@ -67,8 +67,9 @@ public class DB_SQLiteDatabaseHelper extends SQLiteOpenHelper {
                 append("student_password TEXT,").
                 append("gender           INTEGER,").
                 append("birthday         TEXT,").
-                append("start_year       TEXT,").
-                append("years            TEXT").
+                append("start_year       INTEGER,").
+                append("years            INTEGER,").
+                append("teacher_id        INTEGER").
                 append(")").
                 toString();
         db.execSQL(sqlStudents);
@@ -211,9 +212,10 @@ public class DB_SQLiteDatabaseHelper extends SQLiteOpenHelper {
                         String birthday = resultSet.getString("birthday");
                         int start_year = resultSet.getInt("start_year");
                         int years = resultSet.getInt("years");
+                        int teacher_id = resultSet.getInt("teacher_id");
                         // 将数据存储到本地数据库
-                        String sqlInsert = "insert into students (student_id, student_name, student_password, gender, birthday, start_year, years) values (?, ?, ?, ?, ?, ?, ?)";
-                        db.execSQL(sqlInsert, new Object[]{student_id, student_name, student_password, gender, birthday, start_year, years});
+                        String sqlInsert = "insert into students (student_id, student_name, student_password, gender, birthday, start_year, years, teacher_id) values (?, ?, ?, ?, ?, ?, ?, ?)";
+                        db.execSQL(sqlInsert, new Object[]{student_id, student_name, student_password, gender, birthday, start_year, years, teacher_id});
                     }
                     preparedStatement = null;
                     sql = null;
