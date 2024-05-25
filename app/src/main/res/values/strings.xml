@@ -15,6 +15,11 @@
     <string name="account_password_empty">账号或密码为空</string>
     <string name="account_password_empty_error">账号或密码为空</string>
     <string name="Logout">退出登录</string>
+    <string name="tv_course_name">课程名称：</string>
+    <string name="tv_teacher_name">授课教师：</string>
+    <string name="tv_course_place">上课地点：</string>
+    <string name="tv_course_day">上课时间：</string>
+    <string name="tv_course_time">上课星期：</string>
     <string-array name="identity_array">
         <item>学生</item>
         <item>老师</item>
