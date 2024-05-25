@@ -77,11 +77,9 @@ create table if not exists scores
 (
     score_id    int primary key auto_increment comment '成绩id',
     student_id  int comment '学生id',
-    course_id   int comment '课程id',
     schedule_id int comment '课程表id',
     score       int comment '成绩',
     foreign key (student_id) references students (student_id),
-    foreign key (course_id) references courses (course_id),
     foreign key (schedule_id) references schedules (schedule_id)
 ) engine = InnoDB
   auto_increment = 1000
@@ -91,15 +89,16 @@ create table if not exists scores
 insert into admins (admin_name, admin_password, gender, birthday, start_time)
 values ('admin', '202cb962ac59075b964b07152d234b70LJM', 0, '1995-01-01', '2015-08-01');
 insert into teachers (teacher_name, teacher_password, gender, birthday, start_time)
-values ('teacher', '202cb962ac59075b964b07152d234b70LJM', 1, '1990-01-01', '2010-08-01');
+values ('王老师', '202cb962ac59075b964b07152d234b70LJM', 1, '1990-01-01', '2010-08-01');
 insert into students (student_name, student_password, gender, birthday, start_year, years)
-values ('student', '202cb962ac59075b964b07152d234b70LJM', 0, '2000-10-29', 2024, 4);
+values ('刘同学', '202cb962ac59075b964b07152d234b70LJM', 0, '2000-10-29', 2024, 4);
+# 课程1
 insert into courses (course_name, course_credit, course_hour, course_week, course_type)
 values ('移动终端应用开发', 3, 32, 18, 0);
 insert into schedules (teacher_id, course_id, course_day, course_time, course_place, years, terms)
 values (1000, 1000, 4, 5, 'S104', 2023, 1);
-insert into scores (student_id, course_id, schedule_id, score)
-values (1000, 1000, 1000, 90);
+insert into scores (student_id, schedule_id, score)
+values (1000, 1000, 90);
 
 #管理员
 INSERT INTO admins (admin_name, admin_password, gender, birthday, start_time) VALUES
@@ -199,15 +198,15 @@ INSERT INTO courses (course_name, course_credit, course_hour, course_week, cours
 
 ## 课程安排表测试数据    课程安排表id：1001-1030
 INSERT INTO schedules (teacher_id, course_id, course_day, course_time, course_place, years, terms) VALUES
-(1005, 1030, 3, 5, '地点17', 2022, 0),
-(1009, 1020, 7, 7, '地点4', 2024, 1),
-(1002, 1036, 5, 8, '地点1', 2021, 0),
-(1003, 1004, 3, 3, '地点21', 2022, 1),
-(1008, 1002, 7, 5, '地点9', 2021, 1),
-(1008, 1022, 6, 2, '地点17', 2023, 1),
-(1004, 1032, 6, 4, '地点29', 2022, 1),
-(1005, 1004, 5, 2, '地点14', 2024, 0),
-(1002, 1011, 1, 1, '地点9', 2021, 1),
+(1005, 1030, 3, 5, '地点17', 2023, 1), # 可用 1001
+(1009, 1020, 7, 7, '地点4', 2023, 1), # 可用 1002
+(1002, 1036, 5, 8, '地点1', 2023, 1), # 可用 1003
+(1003, 1004, 3, 3, '地点21', 2023, 1), # 可用 1004
+(1008, 1002, 7, 5, '地点9', 2021, 1), # 可用 1005
+(1008, 1022, 6, 2, '地点17', 2023, 1), # 可用 1006
+(1004, 1032, 6, 4, '地点29', 2023, 1), # 可用 1007
+(1005, 1004, 5, 2, '地点14', 2023, 1), # 可用 1008
+(1002, 1011, 1, 1, '地点9', 2023, 1), # 可用 1009
 (1008, 1038, 3, 1, '地点11', 2024, 0),
 (1002, 1016, 4, 6, '地点14', 2024, 0),
 (1004, 1014, 3, 6, '地点25', 2021, 0),
@@ -230,33 +229,44 @@ INSERT INTO schedules (teacher_id, course_id, course_day, course_time, course_pl
 (1002, 1019, 7, 8, '地点20', 2023, 1);
 
 # 成绩表测试数据
-INSERT INTO scores (student_id, course_id, schedule_id, score) VALUES
-(1001, 1035, 1023, 70),
-(1006, 1040, 1026, 70),
-(1007, 1039, 1021, 35),
-(1006, 1009, 1017, 63),
-(1004, 1043, 1027, 31),
-(1005, 1007, 1013, 41),
-(1005, 1027, 1020, 44),
-(1008, 1009, 1008, 35),
-(1001, 1020, 1028, 23),
-(1005, 1031, 1021, 45),
-(1006, 1016, 1026, 92),
-(1008, 1021, 1024, 61),
-(1009, 1040, 1006, 72),
-(1008, 1002, 1023, 32),
-(1007, 1020, 1003, 13),
-(1001, 1016, 1022, 47),
-(1008, 1045, 1017, 10),
-(1009, 1002, 1007, 33),
-(1001, 1028, 1002, 82),
-(1006, 1044, 1028, 30),
-(1002, 1035, 1028, 23),
-(1001, 1047, 1007, 90),
-(1005, 1007, 1008, 22),
-(1007, 1002, 1016, 27),
-(1003, 1046, 1026, 74),
-(1003, 1025, 1022, 95),
-(1005, 1043, 1026, 22),
-(1002, 1037, 1026, 44),
-(1003, 1017, 1017, 36);
+INSERT INTO scores (student_id, schedule_id, score) VALUES
+(1001, 1023, 70),
+(1006, 1026, 70),
+(1007, 1021, 35),
+(1006, 1017, 63),
+(1004, 1027, 31),
+(1005, 1013, 41),
+(1005, 1020, 44),
+(1008, 1008, 35),
+(1001, 1028, 23),
+(1005, 1021, 45),
+(1006, 1026, 92),
+(1008, 1024, 61),
+(1009, 1006, 72),
+(1008, 1023, 32),
+(1007, 1003, 13),
+(1001, 1022, 47),
+(1008, 1017, 10),
+(1009, 1007, 33),
+(1001, 1002, 82),
+(1006, 1028, 30),
+(1002, 1028, 23),
+(1001, 1007, 90),
+(1005, 1008, 22),
+(1007, 1016, 27),
+(1003, 1026, 74),
+(1003, 1022, 95),
+(1005, 1026, 22),
+(1002, 1026, 44),
+(1003, 1017, 36);
+
+INSERT INTO scores (student_id, schedule_id, score) VALUES
+(1000, 1001, 98),
+(1000, 1002, 88),
+(1000, 1003, 85),
+(1000, 1004, 97),
+(1000, 1005, 77),
+(1000, 1006, 86),
+(1000, 1007, 94),
+(1000, 1008, 50),
+(1000, 1009, 0);

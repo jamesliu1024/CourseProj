@@ -111,11 +111,9 @@ public class DB_SQLiteDatabaseHelper extends SQLiteOpenHelper {
                 append("(").
                 append("score_id    INTEGER PRIMARY KEY,").
                 append("student_id  INTEGER,").
-                append("course_id   INTEGER,").
                 append("schedule_id INTEGER,").
                 append("score       INTEGER,").
                 append("foreign key (student_id) references students (student_id),").
-                append("foreign key (course_id) references courses (course_id),").
                 append("foreign key (schedule_id) references schedules (schedule_id)").
                 append(")").
                 toString();
@@ -143,17 +141,16 @@ public class DB_SQLiteDatabaseHelper extends SQLiteOpenHelper {
                     while (resultSet.next()) {
                         int score_id = resultSet.getInt("score_id");
                         int student_id = resultSet.getInt("student_id");
-                        int course_id = resultSet.getInt("course_id");
                         int schedule_id = resultSet.getInt("schedule_id");
                         int score = resultSet.getInt("score");
                         // TEST
-//                        Log.i("DB_SQLiteDatabaseHelper", "score_id: " + score_id + ", student_id: " + student_id + ", course_id: " + course_id + ", schedule_id: " + schedule_id + ", score: " + score);
+//                        Log.i("DB_SQLiteDatabaseHelper", "score_id: " + score_id + ", student_id: " + student_id + ", schedule_id: " + schedule_id + ", score: " + score);
                         // 将数据存储到本地数据库
-                        String sqlInsert = "insert into scores (score_id, student_id, course_id, schedule_id, score) values (?, ?, ?, ?, ?)";
-                        db.execSQL(sqlInsert, new Object[]{score_id, student_id, course_id, schedule_id, score});
+                        String sqlInsert = "insert into scores (score_id, student_id, schedule_id, score) values (?, ?, ?, ?)";
+                        db.execSQL(sqlInsert, new Object[]{score_id, student_id, schedule_id, score});
                     }
                     // TEST
-//                    String sqlInsert2 = "insert into scores (score_id, student_id, course_id, schedule_id, score) values (?, ?, ?, ?, ?)";
+//                    String sqlInsert2 = "insert into scores (score_id, student_id, schedule_id, score) values (?, ?, ?, ?)";
 //                    db.execSQL(sqlInsert2, new Object[]{1000, 1000, 1000, 1000, 90});
 //                    db.execSQL(sqlInsert2, new Object[]{1, 1, 1, 1, 1});
                     preparedStatement = null;
