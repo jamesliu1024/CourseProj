@@ -7,17 +7,23 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import com.example.courseproj.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class StudentActivity extends AppCompatActivity {
     LinearLayout layout;
     AnimationDrawable anim;
 
     private BottomNavigationView bottomNavigationView;  // 底部导航栏
+    int current_year, current_month;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +32,22 @@ public class StudentActivity extends AppCompatActivity {
 
         initView();
 
+        // 展示当前的学年和学期
+        TextView toolbar_title = findViewById(R.id.toolbar_title);
+        // 获取当前年月份
+        current_year = Integer.parseInt(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new Date()));
+        current_month = Integer.parseInt(new SimpleDateFormat("MM", Locale.getDefault()).format(new Date()));
+        // 判断当前月份，如果是2-8月，上年度的下半学期，9-1月是当前年度的上半学期
+        if (current_month >= 2 && current_month <= 8) {
+            toolbar_title.setText((current_year - 1) + "-" + current_year + "学年\t下学期");
+        } else {
+            toolbar_title.setText(current_year + "-" + (current_year + 1) + "学年\t上学期");
+        }
+        // 创建一个Bundle对象
+        Bundle bundle = new Bundle();
+        // 将current_year和current_month放入Bundle
+        bundle.putInt("current_year", current_year);
+        bundle.putInt("current_month", current_month);
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -35,6 +57,8 @@ public class StudentActivity extends AppCompatActivity {
 
                 if (item.getItemId() == R.id.navigation_courses) {
                     selectedFragment = new CoursesFragment();
+                    // 将Bundle设置为Fragment的参数
+                    selectedFragment.setArguments(bundle);
                 } else if (item.getItemId() == R.id.navigation_addCourses) {
                     selectedFragment = new AddCoursesFragment();
                 } else if (item.getItemId() == R.id.navigation_profile) {
@@ -48,8 +72,10 @@ public class StudentActivity extends AppCompatActivity {
             }
         });
 
-        // 默认选择第一个Fragment
-        getSupportFragmentManager().beginTransaction().replace(R.id.student_fragment_container, new CoursesFragment()).commit();
+        // 默认选择CoursesFragment
+        Fragment defaultFragment = new CoursesFragment();
+        defaultFragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.student_fragment_container, defaultFragment).commit();
 
 
     }
