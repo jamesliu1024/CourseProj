@@ -57,10 +57,10 @@ public class CoursesFragment extends Fragment {
         // 执行查询
         String[] selectionArgs = {student_id, String.valueOf(current_year), String.valueOf(current_term)};
         // TEST
-        Log.i("CoursesFragment", "selectionArgs: " + selectionArgs[0] + ", " + selectionArgs[1] + ", " + selectionArgs[2]);
+//        Log.i("CoursesFragment", "selectionArgs: " + selectionArgs[0] + ", " + selectionArgs[1] + ", " + selectionArgs[2]);
         Cursor cursor = db.query("v_scores_schedules_courses", null, "student_id = ? AND years = ? AND terms = ?", selectionArgs, null, null, null);
         // Log测试获取到数据内容
-        Log.i("CoursesFragment", "cursor: " + cursor.getCount());
+//        Log.i("CoursesFragment", "cursor: " + cursor.getCount());
         // 创建适配器
         String[] from = {"course_name", "teacher_name", "course_place", "course_day", "course_time"};  // 这些字段是课表表中的字段
         int[] to = {R.id.tv_course_name, R.id.tv_teacher_name, R.id.tv_course_place, R.id.tv_course_day, R.id.tv_course_time};  // 这些ID是ListView的item布局中的TextView的ID
