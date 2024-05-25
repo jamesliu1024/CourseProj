@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.*;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -28,25 +29,26 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // TODO 从数据库中获取学生课表信息
-        // 获取ListView对象
-        LinearLayout lv_courses = view.findViewById(R.id.lv_courses);
-        // 设置ListView的Adapter
-//        lv_courses.setAdapter(new CourseAdapter(getActivity(), R.layout.course_item, courses));
-
 
         // 退出登录
         Button btn_logout = view.findViewById(R.id.btn_logout);
         btn_logout.setOnClickListener(v -> {
             // 获取SharedPreferences对象
             SharedPreferences sharedPreferences = getActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
-
             // 使用SharedPreferences.Editor对象来清除所有的数据
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.clear();
-
             // 使用commit()或apply()方法来保存更改
             editor.apply();
+
+            // 清空本地SQLite数据库
+            boolean isDeleted = getActivity().deleteDatabase("AndroidDB.db");
+            if (isDeleted) {
+//                Log.i("ProfileFragment", "本地数据库已清空");
+            } else {
+                Log.i("ProfileFragment", "本地数据库清空失败");
+            }
+
 
             // 启动MainActivity
             Intent intent = new Intent(getActivity(), LoginActivity.class);

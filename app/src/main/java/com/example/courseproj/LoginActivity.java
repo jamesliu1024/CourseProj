@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -320,15 +321,10 @@ public class LoginActivity extends AppCompatActivity {
         // 使用commit()或apply()方法来保存更改
         editor.apply();
 
-        // 创建一个新的线程来创建本地数据库
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                DB_SQLiteDB db = new DB_SQLiteDB();
-                SQLiteDatabase sqlite = db.getSqliteObject(LoginActivity.this);
-                db.close();
-            }
-        }).start();
+        // 创建SQLite数据库
+        DB_SQLiteDB dbHelper = new DB_SQLiteDB(this);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
     }
 
     /**

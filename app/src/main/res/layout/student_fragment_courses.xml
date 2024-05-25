@@ -4,7 +4,6 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <!-- 在这里添加你的布局 -->
     <ListView
             android:id="@+id/lv_courses"
             android:layout_width="match_parent"

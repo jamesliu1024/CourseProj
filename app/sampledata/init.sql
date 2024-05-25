@@ -65,7 +65,7 @@ create table if not exists schedules
     course_time  int comment '上课时间 1-8分别代表第一节到第八节课',
     course_place varchar(50) comment '上课地点',
     years        int comment '学年',
-    terms        int comment '学期 0:上学期 1:下学期',
+    terms        int comment '学期 0:上学期 1:下学期  如果是2-8月，上年度的下半学期，9-1月是当前年度的上半学期',
     foreign key (teacher_id) references teachers (teacher_id),
     foreign key (course_id) references courses (course_id)
 ) engine = InnoDB

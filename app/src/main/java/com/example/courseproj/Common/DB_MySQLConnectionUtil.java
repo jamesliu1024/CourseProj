@@ -7,7 +7,8 @@ import java.sql.*;
  */
 public class DB_MySQLConnectionUtil {
     private static final String DRIVER = "com.mysql.jdbc.Driver";   // 驱动
-    protected static final String IP = "192.168.0.103";  // 服务器IP
+    protected static final String IP = "192.168.0.103";  // 505路由器下Docker服务器IP
+//    protected static final String IP = "192.168.1.177";  // 525路由器下Docker服务器IP
     protected static final String PORT = "55005";  // 端口号
     private static final String DB_NAME = "AndroidDB";  // MySQL数据库名称
     private static final String USERNAME = "root";  //MySQL用户

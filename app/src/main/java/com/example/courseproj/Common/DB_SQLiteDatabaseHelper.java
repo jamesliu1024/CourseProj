@@ -3,6 +3,7 @@ package com.example.courseproj.Common;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -50,7 +51,7 @@ public class DB_SQLiteDatabaseHelper extends SQLiteOpenHelper {
                 append("teacher_id       INTEGER PRIMARY KEY,").
                 append("teacher_name     TEXT,").
                 append("teacher_password TEXT,").
-                append("gender           INTEGER").
+                append("gender           INTEGER,").
                 append("birthday         TEXT,").
                 append("start_time       TEXT").
                 append(")").
@@ -242,6 +243,9 @@ public class DB_SQLiteDatabaseHelper extends SQLiteOpenHelper {
                         int gender = resultSet.getInt("gender");
                         String birthday = resultSet.getString("birthday");
                         String start_time = resultSet.getString("start_time");
+                        // TEST
+//                        Log.i("DB_SQLiteDatabaseHelper", "teacher_id: " + teacher_id + ", teacher_name: " + teacher_name + ", teacher_password: " + teacher_password + ", gender: " + gender + ", birthday: " + birthday + ", start_time: " + start_time);
+
                         // 将数据存储到本地数据库
                         String sqlInsert = "insert into teachers (teacher_id, teacher_name, teacher_password, gender, birthday, start_time) values (?, ?, ?, ?, ?, ?)";
                         db.execSQL(sqlInsert, new Object[]{teacher_id, teacher_name, teacher_password, gender, birthday, start_time});
@@ -259,10 +263,19 @@ public class DB_SQLiteDatabaseHelper extends SQLiteOpenHelper {
             }
         }).start();
 
+        // 创建课程信息视图
+        db.execSQL("CREATE VIEW IF NOT EXISTS v_scores_schedules_courses AS SELECT score_id AS _id, * FROM scores JOIN schedules ON scores.schedule_id = schedules.schedule_id JOIN courses ON schedules.course_id = courses.course_id JOIN teachers ON schedules.teacher_id = teachers.teacher_id JOIN students s on scores.student_id = s.student_id");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Handle database upgrade...
+        // 如果有更新，清空数据库
+        db.execSQL("DROP TABLE IF EXISTS admins");
+        db.execSQL("DROP TABLE IF EXISTS teachers");
+        db.execSQL("DROP TABLE IF EXISTS students");
+        db.execSQL("DROP TABLE IF EXISTS courses");
+        db.execSQL("DROP TABLE IF EXISTS schedules");
+        db.execSQL("DROP TABLE IF EXISTS scores");
+        onCreate(db);
     }
 }
