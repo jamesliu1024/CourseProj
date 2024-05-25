@@ -72,6 +72,8 @@ public class DB_SQLiteDatabaseHelper extends SQLiteOpenHelper {
                 toString();
         db.execSQL(sqlStudents);
 
+
+
 //        课程信息表：courses
         String sqlCourses = new StringBuilder().
                 append("create table if not exists courses").
