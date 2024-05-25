@@ -121,6 +121,7 @@ public class DB_SQLiteDatabaseHelper extends SQLiteOpenHelper {
                 toString();
         db.execSQL(sqlScores);
 
+
         // 获取MySQL数据库所有数据并存储
         new Thread(new Runnable() {
             @Override
@@ -134,6 +135,72 @@ public class DB_SQLiteDatabaseHelper extends SQLiteOpenHelper {
                     if (connection == null) {
                         throw new SQLException("无法连接到数据库");
                     }
+
+                    // 获取所有成绩信息
+                    sql = "select * from scores";
+                    preparedStatement = connection.prepareStatement(sql);
+                    resultSet = preparedStatement.executeQuery();
+                    while (resultSet.next()) {
+                        int score_id = resultSet.getInt("score_id");
+                        int student_id = resultSet.getInt("student_id");
+                        int course_id = resultSet.getInt("course_id");
+                        int schedule_id = resultSet.getInt("schedule_id");
+                        int score = resultSet.getInt("score");
+                        // TEST
+//                        Log.i("DB_SQLiteDatabaseHelper", "score_id: " + score_id + ", student_id: " + student_id + ", course_id: " + course_id + ", schedule_id: " + schedule_id + ", score: " + score);
+                        // 将数据存储到本地数据库
+                        String sqlInsert = "insert into scores (score_id, student_id, course_id, schedule_id, score) values (?, ?, ?, ?, ?)";
+                        db.execSQL(sqlInsert, new Object[]{score_id, student_id, course_id, schedule_id, score});
+                    }
+                    // TEST
+//                    String sqlInsert2 = "insert into scores (score_id, student_id, course_id, schedule_id, score) values (?, ?, ?, ?, ?)";
+//                    db.execSQL(sqlInsert2, new Object[]{1000, 1000, 1000, 1000, 90});
+//                    db.execSQL(sqlInsert2, new Object[]{1, 1, 1, 1, 1});
+                    preparedStatement = null;
+                    sql = null;
+                    resultSet = null;
+
+
+                    // 获取所有管理员信息
+                    sql = "select * from admins";
+                    preparedStatement = connection.prepareStatement(sql);
+                    resultSet = preparedStatement.executeQuery();
+                    while (resultSet.next()) {
+                        int admin_id = resultSet.getInt("admin_id");
+                        String admin_name = resultSet.getString("admin_name");
+                        String admin_password = resultSet.getString("admin_password");
+                        int gender = resultSet.getInt("gender");
+                        String birthday = resultSet.getString("birthday");
+                        String start_time = resultSet.getString("start_time");
+                        // 将数据存储到本地数据库
+                        String sqlInsert = "insert into admins (admin_id, admin_name, admin_password, gender, birthday, start_time) values (?, ?, ?, ?, ?, ?)";
+                        db.execSQL(sqlInsert, new Object[]{admin_id, admin_name, admin_password, gender, birthday, start_time});
+                    }
+                    preparedStatement = null;
+                    sql = null;
+                    resultSet = null;
+
+                    // 获取所有教师信息
+                    sql = "select * from teachers";
+                    preparedStatement = connection.prepareStatement(sql);
+                    resultSet = preparedStatement.executeQuery();
+                    while (resultSet.next()) {
+                        int teacher_id = resultSet.getInt("teacher_id");
+                        String teacher_name = resultSet.getString("teacher_name");
+                        String teacher_password = resultSet.getString("teacher_password");
+                        int gender = resultSet.getInt("gender");
+                        String birthday = resultSet.getString("birthday");
+                        String start_time = resultSet.getString("start_time");
+                        // TEST
+//                        Log.i("DB_SQLiteDatabaseHelper", "teacher_id: " + teacher_id + ", teacher_name: " + teacher_name + ", teacher_password: " + teacher_password + ", gender: " + gender + ", birthday: " + birthday + ", start_time: " + start_time);
+
+                        // 将数据存储到本地数据库
+                        String sqlInsert = "insert into teachers (teacher_id, teacher_name, teacher_password, gender, birthday, start_time) values (?, ?, ?, ?, ?, ?)";
+                        db.execSQL(sqlInsert, new Object[]{teacher_id, teacher_name, teacher_password, gender, birthday, start_time});
+                    }
+                    preparedStatement = null;
+                    sql = null;
+                    resultSet = null;
 
                     // 获取所有学生信息
                     sql = "select * from students";
@@ -195,69 +262,11 @@ public class DB_SQLiteDatabaseHelper extends SQLiteOpenHelper {
                     sql = null;
                     resultSet = null;
 
-                    // 获取所有成绩信息
-                    sql = "select * from scores";
-                    preparedStatement = connection.prepareStatement(sql);
-                    resultSet = preparedStatement.executeQuery();
-                    while (resultSet.next()) {
-                        int score_id = resultSet.getInt("score_id");
-                        int student_id = resultSet.getInt("student_id");
-                        int course_id = resultSet.getInt("course_id");
-                        int schedule_id = resultSet.getInt("schedule_id");
-                        int score = resultSet.getInt("score");
-                        // 将数据存储到本地数据库
-                        String sqlInsert = "insert into scores (score_id, student_id, course_id, schedule_id, score) values (?, ?, ?, ?, ?)";
-                        db.execSQL(sqlInsert, new Object[]{score_id, student_id, course_id, schedule_id, score});
-                    }
-                    preparedStatement = null;
-                    sql = null;
-                    resultSet = null;
-
-                    // 获取所有管理员信息
-                    sql = "select * from admins";
-                    preparedStatement = connection.prepareStatement(sql);
-                    resultSet = preparedStatement.executeQuery();
-                    while (resultSet.next()) {
-                        int admin_id = resultSet.getInt("admin_id");
-                        String admin_name = resultSet.getString("admin_name");
-                        String admin_password = resultSet.getString("admin_password");
-                        int gender = resultSet.getInt("gender");
-                        String birthday = resultSet.getString("birthday");
-                        String start_time = resultSet.getString("start_time");
-                        // 将数据存储到本地数据库
-                        String sqlInsert = "insert into admins (admin_id, admin_name, admin_password, gender, birthday, start_time) values (?, ?, ?, ?, ?, ?)";
-                        db.execSQL(sqlInsert, new Object[]{admin_id, admin_name, admin_password, gender, birthday, start_time});
-                    }
-                    preparedStatement = null;
-                    sql = null;
-                    resultSet = null;
-
-                    // 获取所有教师信息
-                    sql = "select * from teachers";
-                    preparedStatement = connection.prepareStatement(sql);
-                    resultSet = preparedStatement.executeQuery();
-                    while (resultSet.next()) {
-                        int teacher_id = resultSet.getInt("teacher_id");
-                        String teacher_name = resultSet.getString("teacher_name");
-                        String teacher_password = resultSet.getString("teacher_password");
-                        int gender = resultSet.getInt("gender");
-                        String birthday = resultSet.getString("birthday");
-                        String start_time = resultSet.getString("start_time");
-                        // TEST
-//                        Log.i("DB_SQLiteDatabaseHelper", "teacher_id: " + teacher_id + ", teacher_name: " + teacher_name + ", teacher_password: " + teacher_password + ", gender: " + gender + ", birthday: " + birthday + ", start_time: " + start_time);
-
-                        // 将数据存储到本地数据库
-                        String sqlInsert = "insert into teachers (teacher_id, teacher_name, teacher_password, gender, birthday, start_time) values (?, ?, ?, ?, ?, ?)";
-                        db.execSQL(sqlInsert, new Object[]{teacher_id, teacher_name, teacher_password, gender, birthday, start_time});
-                    }
-                    preparedStatement = null;
-                    sql = null;
-                    resultSet = null;
-
                     // 关闭数据库连接
                     DB_MySQLConnectionUtil.MySQL_DB_close(connection, preparedStatement, resultSet);
 
                 } catch (Exception e) {
+                    Log.e("DB_SQLiteDatabaseHelper", "Error while fetching and inserting data", e);
                     throw new RuntimeException(e);
                 }
             }

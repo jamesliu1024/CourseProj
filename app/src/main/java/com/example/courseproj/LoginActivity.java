@@ -18,10 +18,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.courseproj.Common.DB_SQLiteDB;
-import com.example.courseproj.Common.MD5;
-import com.example.courseproj.Common.DB_MySQLConnectionUtil;
-import com.example.courseproj.Common.NetworkUtil;
+import com.example.courseproj.Common.*;
 import com.example.courseproj.Student.StudentActivity;
 
 import java.sql.Connection;
@@ -237,36 +234,60 @@ public class LoginActivity extends AppCompatActivity {
 
                             start_time = "";
                         }
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                handleLoginSuccess(user_id, identity, user_name, gender, birthday, start_time, start_year, years);
-                                // TEST
-//                                String test_msg = user_id+ "\n" +identity+ "\n" +user_name+ "\n" +gender+ "\n" +birthday+ "\n" +start_time+ "\n" +start_year+ "\n" +years;
-//                                Toast.makeText(LoginActivity.this, test_msg, Toast.LENGTH_SHORT).show();
 
-                                // 跳转到相应的界面
-                                if (identity == 0) {
-                                    // TODO 跳转到学生界面
-                                    Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
-                                    startActivity(intent);
-                                    finish();
+                        handleLoginSuccess(user_id, identity, user_name, gender, birthday, start_time, start_year, years);
+                        if (identity == 0) {
+                            // TODO 跳转到学生界面
+                            Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
+                            startActivity(intent);
+                            finish();
 //                                    Toast.makeText(LoginActivity.this, "学生界面", Toast.LENGTH_SHORT).show();
-                                } else if (identity == 1) {
-                                    // TODO 跳转到老师界面
-                                    // Intent intent = new Intent(LoginActivity.this, TeacherActivity.class);
-                                    // startActivity(intent);
+                        } else if (identity == 1) {
+                            // TODO 跳转到老师界面
+                            // Intent intent = new Intent(LoginActivity.this, TeacherActivity.class);
+                            // startActivity(intent);
 //                                    finish();
-                                    Toast.makeText(LoginActivity.this, "老师界面", Toast.LENGTH_SHORT).show();
-                                } else if (identity == 2) {
-                                    // TODO 跳转到管理员界面
-                                    // Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
-                                    // startActivity(intent);
+//                            Toast.makeText(LoginActivity.this, "老师界面", Toast.LENGTH_SHORT).show();
+                            Log.i("LoginActivity", "老师界面");
+                        } else if (identity == 2) {
+                            // TODO 跳转到管理员界面
+                            // Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                            // startActivity(intent);
 //                                    finish();
-                                    Toast.makeText(LoginActivity.this, "管理员界面", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+//                            Toast.makeText(LoginActivity.this, "管理员界面", Toast.LENGTH_SHORT).show();
+                            Log.i("LoginActivity", "管理员界面");
+                        }
+
+//                        runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                handleLoginSuccess(user_id, identity, user_name, gender, birthday, start_time, start_year, years);
+//                                // TEST
+////                                String test_msg = user_id+ "\n" +identity+ "\n" +user_name+ "\n" +gender+ "\n" +birthday+ "\n" +start_time+ "\n" +start_year+ "\n" +years;
+////                                Toast.makeText(LoginActivity.this, test_msg, Toast.LENGTH_SHORT).show();
+//
+//                                // 跳转到相应的界面
+//                                if (identity == 0) {
+//                                    // TODO 跳转到学生界面
+//                                    Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
+//                                    startActivity(intent);
+//                                    finish();
+////                                    Toast.makeText(LoginActivity.this, "学生界面", Toast.LENGTH_SHORT).show();
+//                                } else if (identity == 1) {
+//                                    // TODO 跳转到老师界面
+//                                    // Intent intent = new Intent(LoginActivity.this, TeacherActivity.class);
+//                                    // startActivity(intent);
+////                                    finish();
+//                                    Toast.makeText(LoginActivity.this, "老师界面", Toast.LENGTH_SHORT).show();
+//                                } else if (identity == 2) {
+//                                    // TODO 跳转到管理员界面
+//                                    // Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+//                                    // startActivity(intent);
+////                                    finish();
+//                                    Toast.makeText(LoginActivity.this, "管理员界面", Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+//                        });
 
                     } else {
                         // 用户名和密码不匹配，提示用户输入的数据错误，且清空密码框
@@ -322,8 +343,13 @@ public class LoginActivity extends AppCompatActivity {
         editor.apply();
 
         // 创建SQLite数据库
-        DB_SQLiteDB dbHelper = new DB_SQLiteDB(this);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                DB_SQLiteDatabaseHelper dbHelper = new DB_SQLiteDatabaseHelper(LoginActivity.this);
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+            }
+        }).start();
 
     }
 
