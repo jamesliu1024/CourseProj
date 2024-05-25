@@ -36,6 +36,7 @@ public class CoursesFragment extends Fragment {
             current_month = arguments.getInt("current_month");
         }
         if (current_month >= 2 && current_month <= 8) {
+            current_year = current_year - 1;
             current_term = 1;
         } else {
             current_term = 0;
@@ -55,6 +56,8 @@ public class CoursesFragment extends Fragment {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         // 执行查询
         String[] selectionArgs = {student_id, String.valueOf(current_year), String.valueOf(current_term)};
+        // TEST
+        Log.i("CoursesFragment", "selectionArgs: " + selectionArgs[0] + ", " + selectionArgs[1] + ", " + selectionArgs[2]);
         Cursor cursor = db.query("v_scores_schedules_courses", null, "student_id = ? AND years = ? AND terms = ?", selectionArgs, null, null, null);
         // Log测试获取到数据内容
         Log.i("CoursesFragment", "cursor: " + cursor.getCount());
