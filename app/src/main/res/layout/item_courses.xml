@@ -38,7 +38,9 @@
             android:id="@+id/tv_teacher_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"/>
     </TableRow>
 
     <TableRow
@@ -57,7 +59,9 @@
             android:id="@+id/tv_course_place"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"/>
     </TableRow>
 
     <TableRow
@@ -76,7 +80,9 @@
             android:id="@+id/tv_course_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"/>
     </TableRow>
 
     <TableRow
@@ -95,7 +101,9 @@
             android:id="@+id/tv_course_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"/>
     </TableRow>
 
 </LinearLayout>
