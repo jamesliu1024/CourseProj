@@ -3,68 +3,80 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:orientation="vertical"
-              android:padding="16dp">
+              android:padding="10dp">
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
         <TextView
-                android:text="@string/tv_course_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+            android:text="@string/tv_course_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold" />
         <TextView
-                android:id="@+id/tv_course_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+            android:id="@+id/tv_course_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
         <TextView
-                android:text="@string/tv_teacher_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp" />
+            android:text="@string/tv_teacher_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:paddingLeft="7.5dp"
+            android:paddingRight="2dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"/>
         <TextView
-                android:id="@+id/tv_teacher_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp" />
+            android:id="@+id/tv_teacher_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
         <TextView
-                android:text="@string/tv_course_place"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp" />
+            android:text="@string/tv_course_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:paddingLeft="7.5dp"
+            android:paddingRight="2dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"/>
         <TextView
-                android:id="@+id/tv_course_place"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp" />
+            android:id="@+id/tv_course_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
         <TextView
-                android:text="@string/tv_course_day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp" />
+            android:text="@string/tv_course_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:paddingLeft="7.5dp"
+            android:paddingRight="2dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"/>
         <TextView
-                android:id="@+id/tv_course_day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp" />
+            android:id="@+id/tv_course_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" />
     </TableRow>
 
     <TableRow
@@ -74,7 +86,11 @@
             android:text="@string/tv_course_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:paddingLeft="7.5dp"
+            android:paddingRight="2dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"/>
         <TextView
             android:id="@+id/tv_course_time"
             android:layout_width="wrap_content"
