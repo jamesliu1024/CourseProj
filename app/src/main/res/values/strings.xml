@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CourseProj</string>
+    <string name="app_name">SEIG学生信息管理系统</string>
     <string name="login">登陆</string>
     <string name="reset">重置</string>
     <string name="account">请输入账号</string>

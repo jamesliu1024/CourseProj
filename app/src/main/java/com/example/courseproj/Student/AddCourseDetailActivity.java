@@ -188,7 +188,7 @@ public class AddCourseDetailActivity extends AppCompatActivity {
                                 }
                             }).start();
 
-                            // 等待5秒，如果newScoreId为空，表示添加课程失败
+                            // 等待1秒，如果newScoreId为空，表示添加课程失败
                             try {
                                 Thread.sleep(1000);
                             } catch (InterruptedException e) {
