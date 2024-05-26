@@ -1,141 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/animation_list"
-    android:orientation="vertical"
-    android:padding="16dp">
-<!--管理员模块-->
-<!--添加学生页面-->
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/animation_list"
+              android:orientation="vertical"
+              android:padding="16dp"
+              android:id="@+id/bgLayout"
+              tools:context=".Admin.AddStudentActivity">
+    <!--管理员模块-->
+    <!--添加学生页面-->
+    <!-- 学生姓名 -->
     <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:paddingBottom="5dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="学生姓名："
-            android:textSize="20dp"
-            android:textStyle="bold" />
-        <EditText
-            android:id="@+id/edit_student_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="请输入学生姓名"
-            android:textSize="18sp"/>
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+            android:paddingTop="20dp"
+            android:paddingBottom="5dp">
 
         <TextView
-            android:layout_width="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="学生姓名："
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+        <EditText
+                android:id="@+id/edit_student_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入学生姓名"
+                android:textSize="18sp"/>
+    </TableRow>
+
+    <!-- 学生性别 -->
+    <TableRow
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="学生性别："
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_gravity="center_vertical"/>
+            >
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="学生性别："
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"/>
 
         <RadioGroup
-            android:id="@+id/edit_student_gender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                android:id="@+id/edit_student_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/edit_student_gender_0"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="男" />
+                    android:id="@+id/edit_student_gender_0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="男"/>
 
             <RadioButton
-                android:id="@+id/edit_student_gender_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="女" />
+                    android:id="@+id/edit_student_gender_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="女"/>
         </RadioGroup>
     </TableRow>
 
+    <!-- 出生年月 -->
     <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="出生年月："
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-        <EditText
-            android:id="@+id/edit_student_birthday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="格式：yyyy-mm-dd"
-            android:textSize="18sp"/>
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="出生年月："
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+        <TextView
+                android:id="@+id/edit_student_birthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="点击选择日期"
+                android:textSize="18sp"/>
     </TableRow>
 
+    <!-- 入学年份 -->
     <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="入学年份："
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-        <EditText
-            android:id="@+id/edit_student_start_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="格式：yyyy"
-            android:textSize="18sp"/>
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="入学年份："
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+        <EditText
+                android:id="@+id/edit_student_start_year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="格式：yyyy"
+                android:textSize="18sp"/>
     </TableRow>
 
+    <!-- 学年制 -->
     <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="学年制："
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-        <EditText
-            android:id="@+id/edit_student_years"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="格式：y"
-            android:textSize="18sp"/>
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="学年制："
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+        <NumberPicker
+                android:id="@+id/edit_student_years"
+                android:layout_width="80dp"
+                android:layout_height="100dp"/>
     </TableRow>
 
+    <!-- 导师 -->
     <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:gravity="center_horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="导师："
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+        <Spinner
+                android:id="@+id/edit_student_tutor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </TableRow>
+
+    <!-- 密码 -->
+    <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密码："
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+        <EditText
+                android:id="@+id/edit_student_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="请输入密码"
+                android:textSize="18sp"/>
+    </TableRow>
+
+    <!-- 确认密码 -->
+    <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="确认密码："
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+        <EditText
+                android:id="@+id/edit_student_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="请再次输入密码"
+                android:textSize="18sp"/>
+    </TableRow>
+
+
+    <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal">
 
         <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="提交"
-            android:layout_marginRight="50dp"/>
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="提交"
+                android:layout_marginRight="50dp"/>
 
         <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="返回" />
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="返回"/>
     </TableRow>
 </LinearLayout>

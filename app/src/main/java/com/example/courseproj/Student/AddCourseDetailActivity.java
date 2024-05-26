@@ -194,14 +194,14 @@ public class AddCourseDetailActivity extends AppCompatActivity {
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            // 将新课程添加到本地数据库
                             if (newScoreId == null) {
-                                // 显示添加成功的提示信息
+                                // 显示添加失败的提示信息
                                 runOnUiThread(() -> {
                                     Toast.makeText(AddCourseDetailActivity.this, "添加课程失败", Toast.LENGTH_SHORT).show();
                                 });
                                 return;
                             }
+                            // 将新课程添加到本地数据库
                             ContentValues values = new ContentValues();
                             values.put("score_id", newScoreId);
                             values.put("schedule_id", newScheduleId);

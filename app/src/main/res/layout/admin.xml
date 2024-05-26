@@ -5,7 +5,7 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              tools:context=".Student.StudentActivity"
+              tools:context=".Admin.AdminActivity"
               android:id="@+id/bgLayout"
               android:background="@drawable/animation_list"
         >
