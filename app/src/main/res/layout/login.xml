@@ -20,7 +20,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="32dp"
-            />
+            android:contentDescription="@string/seig_logo"/>
 
     <TextView
             android:id="@+id/textView"

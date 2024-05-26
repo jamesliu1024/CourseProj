@@ -9,6 +9,7 @@
     <color name="dark_gray">#515151</color> <!-- 深灰色 -->
     <color name="colorPrimaryHalfTranslucent">#80EEE1E1</color> <!-- 淡粉色 半透明 -->
     <color name="colorPrimary">#EEE1E1</color> <!-- 淡粉色 -->
+    <color name="colorPrimaryDarkHalfTranslucent">#8000574B</color> <!-- 深绿色 半透明 -->
     <color name="colorPrimaryDark">#00574B</color> <!-- 深绿色 -->
     <color name="colorAccent">#D81B60</color> <!-- 紫红色 -->
     <color name="colorfragment">#ECD8DF</color> <!-- 淡紫色 -->

@@ -38,7 +38,7 @@ create table if not exists students
     birthday         date comment '生日',
     start_year       int comment '入学年份',
     years            int comment '学年制',
-    teacher_id       int comment '班主任id',
+    teacher_id       int comment '导师id',
     foreign key (teacher_id) references teachers (teacher_id)
 ) engine = InnoDB
   auto_increment = 1000
@@ -208,7 +208,6 @@ INSERT INTO schedules (teacher_id, course_id, course_day, course_time, course_pl
 (1004, 1032, 6, 4, '地点29', 2023, 1), # 可用 1007
 (1005, 1004, 5, 2, '地点14', 2023, 1), # 可用 1008
 (1002, 1011, 1, 1, '地点9', 2023, 1), # 可用 1009
-INSERT INTO schedules (teacher_id, course_id, course_day, course_time, course_place, years, terms) VALUES
 (1003, 1013, 3, 8, 'D204', 2024, 0),
 (1004, 1019, 2, 1, 'C204', 2023, 1),
 (1004, 1038, 4, 4, 'A306', 2024, 0),
@@ -241,9 +240,9 @@ INSERT INTO schedules (teacher_id, course_id, course_day, course_time, course_pl
 
 # 成绩表测试数据
 INSERT INTO scores (student_id, schedule_id, score) VALUES
-(1001, 1023, 70),
-(1006, 1026, 70),
-(1007, 1021, 35),
+(1001, 1000, 70),
+(1006, 1000, 70),
+(1007, 1000, 35),
 (1006, 1017, 63),
 (1004, 1027, 31),
 (1005, 1013, 41),

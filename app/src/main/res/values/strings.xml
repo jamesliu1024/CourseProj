@@ -21,11 +21,13 @@
     <string name="tv_course_day">上课时间：</string>
     <string name="tv_course_time">上课星期：</string>
     <string name="profile_student_id">学号</string>
-    <string name="profile_student_name">姓名</string>
-    <string name="profile_student_gender">性别</string>
+    <string name="profile_name">姓名</string>
+    <string name="profile_gender">性别</string>
     <string name="profile_start_year">年级</string>
     <string name="profile_years">学制</string>
-    <string name="profile_teacher_name">辅导员</string>
+    <string name="profile_teacher_name">导师</string>
+    <string name="profile_birthday">生日</string>
+    <string name="seig_logo">SEIG_LOGO</string>
     <string-array name="identity_array">
         <item>学生</item>
         <item>老师</item>
