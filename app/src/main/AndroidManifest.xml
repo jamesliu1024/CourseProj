@@ -39,6 +39,26 @@
                 android:name=".Student.AddCourseDetailActivity"
                 android:exported="true">
         </activity>
+        <activity
+                android:name=".Admin.AdminActivity"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".Admin.AddCourseActivity"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".Admin.AddStudentActivity"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".Admin.ChangePasswordActivity"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".Admin.EditScoreActivity"
+                android:exported="true">
+        </activity>
     </application>
 
 </manifest>
