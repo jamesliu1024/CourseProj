@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.courseproj.Admin.AdminActivity;
 import com.example.courseproj.Student.StudentActivity;
 
 import java.text.ParseException;
@@ -82,11 +83,10 @@ public class MainActivity extends AppCompatActivity {
 //                finish();
                 Toast.makeText(MainActivity.this, "老师界面", Toast.LENGTH_SHORT).show();
             } else if (identity == 2) {
-                // TODO 跳转到管理员界面
-//                Intent intent = new Intent(MainActivity.this, AdminActivity.class);
-//                startActivity(intent);
-//                finish();
-                Toast.makeText(MainActivity.this, "管理员界面", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, AdminActivity.class);
+                startActivity(intent);
+                finish();
+//                Toast.makeText(MainActivity.this, "管理员界面", Toast.LENGTH_SHORT).show();
             }
         } else {
 
