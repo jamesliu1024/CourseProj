@@ -5,12 +5,11 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               android:padding="16dp"
-              tools:context=".Student.CourseDetailActivity"
+              tools:context=".Student.AddCourseDetailActivity"
               android:id="@+id/bgLayout"
               android:background="@drawable/animation_list"
         >
-    <!--course_detail.xml-->
-    <!-- 标题栏 -->
+
     <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -120,19 +119,15 @@
                 android:textSize="16sp"/>
     </TableRow>
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="你的分数"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp"/>
-
-    <TextView
-            android:id="@+id/tv_student_score"
+    <Button
+            android:id="@+id/btn_add_course"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="确认选课"
+            android:textSize="16sp"
+            android:textColor="@color/white"
             android:layout_marginBottom="16dp"/>
+
 
     <!-- 同班同学列表 -->
     <!--    <TextView-->

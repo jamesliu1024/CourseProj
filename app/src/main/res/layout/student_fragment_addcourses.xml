@@ -6,12 +6,10 @@
               android:background="@color/translucent"
         >
 
-    <TextView
-            android:layout_width="wrap_content"
+    <ListView
+            android:id="@+id/lv_add_courses"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="这是选课页面"
-            android:textSize="20sp" />
-
-    <!-- 在这里添加你的布局 -->
+            />
 
 </LinearLayout>
