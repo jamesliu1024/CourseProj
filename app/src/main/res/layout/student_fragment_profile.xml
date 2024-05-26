@@ -4,8 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              android:id="@+id/student_fragment_profile"
-        >
+              android:id="@+id/student_fragment_profile">
 
     <TextView
             android:layout_width="match_parent"
