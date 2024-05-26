@@ -90,12 +90,12 @@ public class StudentActivity extends AppCompatActivity {
             }
         });
 
-        // 默认选择ProfileFragment
-        Fragment defaultFragment = new ProfileFragment();
+        // 默认选择 CoursesFragment
+        Fragment defaultFragment = new CoursesFragment();
         defaultFragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().replace(R.id.student_fragment_container, defaultFragment).commit();
         // 设置底部导航栏的默认选项为ProfileFragment对应的菜单项
-        bottomNavigationView.setSelectedItemId(R.id.navigation_profile);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_courses);
 
     }
 
