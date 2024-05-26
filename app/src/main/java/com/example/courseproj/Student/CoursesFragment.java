@@ -18,6 +18,11 @@ import com.example.courseproj.Common.DB_SQLiteDatabaseHelper;
 import com.example.courseproj.R;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * 课程表页面
+ * 显示学生的课程表信息
+ * 课程名称  任课教师  上课地点  上课时间
+ */
 public class CoursesFragment extends Fragment {
     int current_year, current_month, current_term;
     // 创建一个数组来存储星期的名称
