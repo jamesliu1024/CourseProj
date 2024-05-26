@@ -11,15 +11,23 @@
         >
     <!--course_detail.xml-->
     <!-- 标题栏 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="课程成绩"
+        android:textSize="40sp"
+        android:paddingLeft="25dp"/>
     <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp">
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="课程名称："
+                android:text="@string/tv_course_name"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
 
@@ -29,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
     </TableRow>
 
     <!-- 课程信息区域 -->
@@ -40,14 +48,15 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="任课教师："
+                android:text="@string/tv_teacher"
                 android:textSize="16sp"/>
 
         <TextView
                 android:id="@+id/tv_teacher"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textAlignment="center" />
     </TableRow>
 
     <TableRow
@@ -57,14 +66,15 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="课程学分："
+                android:text="@string/tv_credit"
                 android:textSize="16sp"/>
 
         <TextView
                 android:id="@+id/tv_credit"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textAlignment="center" />
     </TableRow>
 
     <TableRow
@@ -74,32 +84,35 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="课程学时："
+                android:text="@string/tv_hour"
                 android:textSize="16sp"/>
 
         <TextView
                 android:id="@+id/tv_hour"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textAlignment="center" />
     </TableRow>
 
     <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
+            >
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="上课周数："
+                android:text="@string/tv_week"
                 android:textSize="16sp"/>
 
         <TextView
                 android:id="@+id/tv_week"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textAlignment="center"
+                />
     </TableRow>
 
     <TableRow
@@ -110,29 +123,36 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="课程类型："
+                android:text="@string/tv_type"
                 android:textSize="16sp"/>
 
         <TextView
                 android:id="@+id/tv_type"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textAlignment="center" />
     </TableRow>
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="你的分数"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp"/>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_student_score"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-    <TextView
-            android:id="@+id/tv_student_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"/>
+        <TextView
+                android:id="@+id/tv_student_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textAlignment="textEnd"/>
+    </TableRow>
 
     <!-- 同班同学列表 -->
     <!--    <TextView-->
