@@ -48,7 +48,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_teacher"
+                android:text="@string/course1"
                 android:textSize="16sp"/>
 
         <TextView
@@ -66,7 +66,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_credit"
+                android:text="@string/course2"
                 android:textSize="16sp"/>
 
         <TextView
@@ -84,7 +84,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_hour"
+                android:text="@string/course4"
                 android:textSize="16sp"/>
 
         <TextView
@@ -103,7 +103,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_week"
+                android:text="@string/course5"
                 android:textSize="16sp"/>
 
         <TextView
@@ -123,7 +123,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_type"
+                android:text="@string/course6"
                 android:textSize="16sp"/>
 
         <TextView
@@ -141,7 +141,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tv_student_score"
+                android:text="@string/course7"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
