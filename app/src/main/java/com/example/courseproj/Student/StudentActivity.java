@@ -18,6 +18,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ * 学生主页面
+ * 包含底部导航栏
+ * 三个Fragment：CoursesFragment、AddCoursesFragment、ProfileFragment
+ * 默认展示ProfileFragment
+ * 通过底部导航栏切换Fragment
+ * 通过Bundle传递当前学年、学期和月份
+ * 通过SharedPreferences获取学生学号
+ * 通过Intent获取课程信息
+ */
 public class StudentActivity extends AppCompatActivity {
     LinearLayout layout;
     AnimationDrawable anim;

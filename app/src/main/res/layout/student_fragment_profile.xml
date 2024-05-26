@@ -190,18 +190,18 @@
                 android:textAlignment="textEnd"/>
     </TableRow>
 
-    <!--    推出登陆按钮-->
+    <!--    退出登陆按钮-->
     <Button
-            android:id="@+id/btn_logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Logout"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:padding="10dp"
-            android:layout_marginBottom="20dp"
-            />
+        android:id="@+id/btn_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Logout"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:layout_marginBottom="20dp"
+        />
 
 </LinearLayout>

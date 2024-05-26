@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/animation_list"
     android:orientation="vertical"
     android:padding="16dp">
 <!--管理员模块-->
@@ -19,7 +20,7 @@
             android:layout_height="wrap_content"
             android:text="学生姓名："
             android:textSize="20dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
         <EditText
             android:id="@+id/edit_student_name"
             android:layout_width="match_parent"

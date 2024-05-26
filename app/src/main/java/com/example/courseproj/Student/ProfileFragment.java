@@ -23,6 +23,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 
+/**
+ * 学生个人信息页面
+ * 显示学生的个人信息
+ * 学号  姓名  性别  出生日期  入学年份  学制  导师姓名
+ */
 public class ProfileFragment extends Fragment {
     SharedPreferences sharedPreferences;
     String student_id,studentName,studentGender,studentBirthday,startYear,years,teacherName;

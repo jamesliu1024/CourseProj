@@ -51,10 +51,10 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            // 如果用户登陆时间超过7天，跳转到LoginActivity
+            // 如果用户登陆时间超过1天，跳转到LoginActivity
             if (login_time != null) {
                 long time = new Date().getTime() - login_time.getTime();
-                if (time > 7 * 24 * 60 * 60 * 1000) {
+                if (time > 1 * 24 * 60 * 60 * 1000) {
                     // 提示用户登录已过期，等待5秒后跳转到LoginActivity
                     Toast.makeText(MainActivity.this, "登录已过期，请重新登录", Toast.LENGTH_SHORT).show();
                     try {

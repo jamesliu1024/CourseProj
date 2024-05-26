@@ -15,6 +15,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.courseproj.Common.DB_SQLiteDatabaseHelper;
 import com.example.courseproj.R;
 
+/**
+ * 课程详情页面
+ * 显示课程的详细信息
+ * 课程名称  任课教师  课程学分  课程学时 上课周数  课程类型  成绩
+ */
 public class CourseDetailActivity extends AppCompatActivity {
     LinearLayout layout;
     AnimationDrawable anim;
@@ -24,7 +29,7 @@ public class CourseDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.course_detail);
+        setContentView(R.layout.student_course_detail);
 
         initView();
 
@@ -43,8 +48,8 @@ public class CourseDetailActivity extends AppCompatActivity {
         current_term = intent.getIntExtra("current_term", 0);
 
         // 通过scheduleId从数据库查询课程信息
-        String[] selectionArgs = {scheduleId};
-        Cursor cursor = db.query("v_scores_schedules_courses", null,  "schedule_id = ?", selectionArgs,
+        String[] selectionArgs = {scheduleId, student_id};
+        Cursor cursor = db.query("v_scores_schedules_courses", null,  "schedule_id = ? and student_id = ?", selectionArgs,
                 null, null, null);
         cursor.moveToFirst();
         // 课程名称  任课教师  课程学分  课程学时 上课周数  课程类型  成绩
@@ -63,6 +68,21 @@ public class CourseDetailActivity extends AppCompatActivity {
         String courseType = courseTypeIndex != -1 ? cursor.getString(courseTypeIndex) : null;
         String score = scoreIndex != -1 ? cursor.getString(scoreIndex) : null;
         cursor.close();
+
+        // TEST
+//        Log.i("CourseDetailActivity", "courseName: " + courseName + ", teacherName: " + teacherName + ", courseCredit: " + courseCredit
+//                + ", courseHour: " + courseHour + ", courseWeek: " + courseWeek + ", courseType: " + courseType + ", score: " + score);
+
+        // courseType: 0: 必修课 1: 选修课
+        courseType = courseType.equals("0") ? "必修课" : "选修课";
+        // score: 0: 未出成绩 <60: 不及格
+        if (score != null) {
+            if (score.equals("0")) {
+                score = "未出成绩";
+            } else if (Integer.parseInt(score) < 60) {
+                score = "不及格";
+            }
+        }
 
         // 显示课程信息
         TextView tvCourseName = findViewById(R.id.tv_course_title);

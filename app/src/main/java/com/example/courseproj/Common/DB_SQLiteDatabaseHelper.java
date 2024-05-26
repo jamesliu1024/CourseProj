@@ -271,8 +271,14 @@ public class DB_SQLiteDatabaseHelper extends SQLiteOpenHelper {
             }
         }).start();
 
-        // 创建课程信息视图
-        db.execSQL("CREATE VIEW IF NOT EXISTS v_scores_schedules_courses AS SELECT score_id AS _id, * FROM scores JOIN schedules ON scores.schedule_id = schedules.schedule_id JOIN courses ON schedules.course_id = courses.course_id JOIN teachers ON schedules.teacher_id = teachers.teacher_id JOIN students s on scores.student_id = s.student_id");
+        // 创建学生已选课程信息视图
+        db.execSQL("CREATE VIEW IF NOT EXISTS v_scores_schedules_courses " +
+                "AS SELECT score_id AS _id, * FROM scores " +
+                "JOIN schedules ON scores.schedule_id = schedules.schedule_id " +
+                "JOIN courses ON schedules.course_id = courses.course_id " +
+                "JOIN teachers ON schedules.teacher_id = teachers.teacher_id " +
+                "JOIN students s on scores.student_id = s.student_id");
+
     }
 
     @Override
