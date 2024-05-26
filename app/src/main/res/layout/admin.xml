@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context=".Student.StudentActivity"
+              android:id="@+id/bgLayout"
+              android:background="@drawable/animation_list"
+        >
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_student"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryHalfTranslucent"
+            android:paddingTop="@dimen/visible_horizontal_size"
+            >
+
+        <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text=""
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- 管理员个人信息 -->
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+        <TextView
+                android:id="@+id/admin_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="管理员ID: "/>
+
+        <TextView
+                android:id="@+id/admin_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="管理员姓名: "/>
+
+        <TextView
+                android:id="@+id/admin_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="性别: "/>
+
+        <TextView
+                android:id="@+id/admin_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="生日: "/>
+
+        <TextView
+                android:id="@+id/admin_start_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="入职时间: "/>
+    </LinearLayout>
+
+    <!-- 功能模块 -->
+    <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:padding="16dp">
+
+        <TableRow>
+
+            <!-- 添加课程 -->
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_courses" />
+<!--                        android:src="@drawable/ic_add_course" />-->
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="添加课程" />
+            </LinearLayout>
+
+            <!-- 添加学生 -->
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_courses" />
+<!--                        android:src="@drawable/ic_add_student" />-->
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="添加学生" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow>
+
+            <!-- 修改成绩 -->
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_courses" />
+<!--                        android:src="@drawable/ic_edit_score" />-->
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="修改成绩" />
+            </LinearLayout>
+
+            <!-- 修改密码 -->
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_courses" />
+<!--                        android:src="@drawable/ic_change_password" />-->
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="修改密码" />
+            </LinearLayout>
+        </TableRow>
+
+    </TableLayout>
+
+    <!--    退出登陆按钮-->
+    <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Logout"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/dark_gray"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/translucent_white"
+            />
+
+</LinearLayout>
