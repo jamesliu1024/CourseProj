@@ -28,6 +28,12 @@
     <string name="profile_teacher_name">导师</string>
     <string name="profile_birthday">生日</string>
     <string name="seig_logo">SEIG_LOGO</string>
+    <string name="tv_teacher">任课教师：</string>
+    <string name="tv_credit">课程学分：</string>
+    <string name="tv_hour">课程学时：</string>
+    <string name="tv_week">上课周数：</string>
+    <string name="tv_type">课程类型：</string>
+    <string name="tv_student_score">你的分数</string>
     <string-array name="identity_array">
         <item>学生</item>
         <item>老师</item>
