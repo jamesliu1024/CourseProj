@@ -1,4 +1,12 @@
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Desktop/CourseProj/app/src/main/res/layout/course_detail.xml" value="0.17291666666666666" />
+        <entry key="..\:/Desktop/CourseProj/app/src/main/res/layout/modify_password.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />

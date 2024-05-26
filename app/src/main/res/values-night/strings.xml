@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="course1">课程名称：</string>
+    <string name="course2">任 课 教 师：</string>
+    <string name="course3">课 程 学 分：</string>
+    <string name="course4">课 程 学 时：</string>
+    <string name="course5">上 课 周 数：</string>
+    <string name="course6">课 程 类 型：</string>
+    <string name="course7">你的分数:</string>
+</resources>
