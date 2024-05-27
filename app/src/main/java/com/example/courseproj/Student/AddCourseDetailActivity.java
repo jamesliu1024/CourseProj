@@ -20,6 +20,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.courseproj.Common.DB_MySQLConnectionUtil;
+import com.example.courseproj.Common.DB_SQLiteDB;
 import com.example.courseproj.Common.DB_SQLiteDatabaseHelper;
 import com.example.courseproj.R;
 import com.mysql.jdbc.Statement;
@@ -33,6 +34,8 @@ import java.util.Arrays;
 public class AddCourseDetailActivity extends AppCompatActivity {
     LinearLayout layout;
     AnimationDrawable anim;
+    private DB_SQLiteDB dbHelper;
+    private SQLiteDatabase db;
     int current_year, current_month, current_term;
     String newCourseId, newScheduleId, newCourseName, newTeacherName, newCourseCredit,
             newCourseHour, newCourseWeek, newCourseType, newCourseDay, newCourseTime, newScoreId;
@@ -44,8 +47,9 @@ public class AddCourseDetailActivity extends AppCompatActivity {
 
         initView();
 
-        DB_SQLiteDatabaseHelper dbHelper = new DB_SQLiteDatabaseHelper(this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        // 获取数据库
+        dbHelper = new DB_SQLiteDB(this);
+        db = dbHelper.getSqliteObject(this);
 
         // 从sharedpreferences中获取学生学号
         String student_id = getSharedPreferences("user_data", 0).getString("user_id", "");
@@ -262,4 +266,15 @@ public class AddCourseDetailActivity extends AppCompatActivity {
         setResult(RESULT_OK, resultIntent);
         finish();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        // Activity被销毁时，关闭数据库连接
+        if (dbHelper != null) {
+            dbHelper.close();
+        }
+    }
+
 }

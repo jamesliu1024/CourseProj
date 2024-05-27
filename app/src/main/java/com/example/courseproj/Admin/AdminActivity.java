@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.courseproj.Common.DB_SQLiteDB;
 import com.example.courseproj.Common.DB_SQLiteDatabaseHelper;
 import com.example.courseproj.LoginActivity;
 import com.example.courseproj.R;
@@ -26,6 +27,8 @@ import java.util.Locale;
 public class AdminActivity extends AppCompatActivity {
     LinearLayout layout;
     AnimationDrawable anim;
+    private DB_SQLiteDB dbHelper;
+    private SQLiteDatabase db;
     SharedPreferences sharedPreferences;
     String admin_id, adminName, adminGender, adminBirthday, startTime;
     private TextView adminIdTextView, adminNameTextView,
@@ -87,6 +90,9 @@ public class AdminActivity extends AppCompatActivity {
         editScoreLayout.setOnClickListener(v -> {
             // 启动修改成绩的Activity
             Intent intent = new Intent(this, EditScoreActivity.class);
+            intent.putExtra("current_year", current_year);
+            intent.putExtra("current_month", current_month);
+            intent.putExtra("current_term", current_term);
             startActivity(intent);
         });
 
@@ -176,9 +182,9 @@ public class AdminActivity extends AppCompatActivity {
      * 从数据库中获取管理员的个人信息
      * 通过管理员ID从数据库中获取管理员的个人信息
      */
-    private void getAdminInfo() {
-        DB_SQLiteDatabaseHelper dbHelper = new DB_SQLiteDatabaseHelper(this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
+    private void getAdminInfo() {        // 获取数据库
+        dbHelper = new DB_SQLiteDB(this);
+        db = dbHelper.getSqliteObject(this);
         // 执行查询
         String sql = "SELECT * FROM admins WHERE admin_id = ?";
         Cursor cursor = db.rawQuery(sql, new String[]{admin_id});
@@ -206,4 +212,15 @@ public class AdminActivity extends AppCompatActivity {
         }
         cursor.close();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        // Activity被销毁时，关闭数据库连接
+        if (dbHelper != null) {
+            dbHelper.close();
+        }
+    }
+
 }

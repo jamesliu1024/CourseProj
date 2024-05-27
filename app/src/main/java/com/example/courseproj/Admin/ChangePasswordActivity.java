@@ -1,12 +1,10 @@
 package com.example.courseproj.Admin;
 
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -14,10 +12,8 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.courseproj.Common.DB_MySQLConnectionUtil;
 import com.example.courseproj.Common.DB_SQLiteDB;
-import com.example.courseproj.Common.DB_SQLiteDatabaseHelper;
 import com.example.courseproj.Common.MD5;
 import com.example.courseproj.R;
-import com.mysql.jdbc.Statement;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -232,8 +228,10 @@ public class ChangePasswordActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        // 当你的Activity被销毁时，你应该关闭数据库连接
-        dbHelper.close();
+        // Activity被销毁时，关闭数据库连接
+        if (dbHelper != null) {
+            dbHelper.close();
+        }
     }
 
 }

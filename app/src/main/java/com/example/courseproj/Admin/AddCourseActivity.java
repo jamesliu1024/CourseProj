@@ -319,12 +319,22 @@ public class AddCourseActivity extends AppCompatActivity {
 
             // 显示添加成功的提示信息
             runOnUiThread(() -> {
-                Toast.makeText(this, "ScheduleId: " + newScheduleId + "\nnewCourseId: " + newCourseId + "添加成功", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "ScheduleId: " + newScheduleId + "\nnewCourseId: " + newCourseId + "\n添加成功", Toast.LENGTH_LONG).show();
             });
 
             finish();
         });
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        // Activity被销毁时，关闭数据库连接
+        if (dbHelper != null) {
+            dbHelper.close();
+        }
     }
 
 }

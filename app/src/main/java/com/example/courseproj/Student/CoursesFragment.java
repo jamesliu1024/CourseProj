@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.example.courseproj.Common.DB_SQLiteDB;
 import com.example.courseproj.Common.DB_SQLiteDatabaseHelper;
 import com.example.courseproj.R;
 import org.jetbrains.annotations.NotNull;
@@ -30,6 +31,8 @@ public class CoursesFragment extends Fragment {
     // 创建一个数组来存储课程的时间
     final String[] courseTimes = {"1-2节 09:00-10:20", "3-4节 10:40-12:00", "5-6节 12:30-13:50", "7-8节 14:00-15:20",
             "9-10节 15:30-16:50", "11-12节 17:00-18:20", "13-14节 19:00-20:20", "15-16节 20:30-21:50"};
+    private DB_SQLiteDB dbHelper;
+    private SQLiteDatabase db;
 
     @Nullable
     @Override
@@ -40,6 +43,9 @@ public class CoursesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        // 获取数据库
+        dbHelper = new DB_SQLiteDB(getActivity());
+        db = dbHelper.getSqliteObject(getActivity());
 
         Bundle arguments = getArguments();  // 获取传递过来的参数
         if (arguments != null) {
@@ -65,9 +71,6 @@ public class CoursesFragment extends Fragment {
 
         // 获取ListView对象
         ListView lv_courses = view.findViewById(R.id.lv_courses);
-        // 获取数据库对象
-        DB_SQLiteDatabaseHelper dbHelper = new DB_SQLiteDatabaseHelper(getActivity());
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
         // 执行查询
         String[] selectionArgs = {student_id, String.valueOf(current_year), String.valueOf(current_term)};
         Cursor cursor = db.query("v_scores_schedules_courses", null,
@@ -111,7 +114,7 @@ public class CoursesFragment extends Fragment {
             }
         });
 
-        // 在CoursesFragment中
+        // 点击ListView中的item，跳转到课程详情页面
         lv_courses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -139,4 +142,15 @@ public class CoursesFragment extends Fragment {
         });
 
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        // Fragment被销毁时，关闭数据库连接
+        if (dbHelper != null) {
+            dbHelper.close();
+        }
+    }
+
 }

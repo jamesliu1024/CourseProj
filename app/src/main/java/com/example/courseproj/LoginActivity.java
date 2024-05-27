@@ -46,6 +46,8 @@ public class LoginActivity extends AppCompatActivity {
     Button loginButton;
     Spinner identitySpinner;
     int identity;  // 0:学生 1:老师 2:管理员
+    private DB_SQLiteDB dbHelper;
+    private SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -314,8 +316,9 @@ public class LoginActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                DB_SQLiteDatabaseHelper dbHelper = new DB_SQLiteDatabaseHelper(LoginActivity.this);
-                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                // 获取数据库
+                dbHelper = new DB_SQLiteDB(LoginActivity.this);
+                db = dbHelper.getSqliteObject(LoginActivity.this);
             }
         }).start();
 
@@ -354,6 +357,16 @@ public class LoginActivity extends AppCompatActivity {
                 anim.start();
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        // Activity被销毁时，关闭数据库连接
+        if (dbHelper != null) {
+            dbHelper.close();
+        }
     }
 
 }

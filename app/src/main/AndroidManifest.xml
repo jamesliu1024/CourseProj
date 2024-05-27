@@ -59,6 +59,10 @@
                 android:name=".Admin.EditScoreActivity"
                 android:exported="true">
         </activity>
+        <activity
+                android:name=".Admin.CourseDetailActivity"
+                android:exported="true">
+        </activity>
     </application>
 
 </manifest>

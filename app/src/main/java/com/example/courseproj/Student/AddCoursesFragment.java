@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.example.courseproj.Common.DB_SQLiteDB;
 import com.example.courseproj.Common.DB_SQLiteDatabaseHelper;
 import com.example.courseproj.R;
 import org.jetbrains.annotations.NotNull;
@@ -38,6 +39,8 @@ public class AddCoursesFragment extends Fragment {
             "9-10节 15:30-16:50", "11-12节 17:00-18:20", "13-14节 19:00-20:20", "15-16节 20:30-21:50"};
     String student_id;
     ListView lv_add_courses;
+    private DB_SQLiteDB dbHelper;
+    private SQLiteDatabase db;
 
     @Nullable
     @Override
@@ -48,6 +51,10 @@ public class AddCoursesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        // 获取数据库
+        dbHelper = new DB_SQLiteDB(getActivity());
+        db = dbHelper.getSqliteObject(getActivity());
 
         Bundle arguments = getArguments();  // 获取传递过来的参数
         if (arguments != null) {
@@ -109,9 +116,6 @@ public class AddCoursesFragment extends Fragment {
     private void setCourseList() {
         // 获取ListView对象
         lv_add_courses = getView().findViewById(R.id.lv_add_courses);
-        // 获取数据库对象
-        DB_SQLiteDatabaseHelper dbHelper = new DB_SQLiteDatabaseHelper(getActivity());
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
         // 执行查询
         // 查询条件：学生未选的课程
         String[] selectionArgs = {student_id, String.valueOf(current_year), String.valueOf(current_term)};
@@ -161,4 +165,15 @@ public class AddCoursesFragment extends Fragment {
         });
 
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        // Fragment被销毁时，关闭数据库连接
+        if (dbHelper != null) {
+            dbHelper.close();
+        }
+    }
+
 }

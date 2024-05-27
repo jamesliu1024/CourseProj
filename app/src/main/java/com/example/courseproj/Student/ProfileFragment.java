@@ -16,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.example.courseproj.Common.DB_SQLiteDB;
 import com.example.courseproj.Common.DB_SQLiteDatabaseHelper;
 import com.example.courseproj.LoginActivity;
 import com.example.courseproj.R;
@@ -31,6 +32,8 @@ import java.util.Arrays;
 public class ProfileFragment extends Fragment {
     SharedPreferences sharedPreferences;
     String student_id,studentName,studentGender,studentBirthday,startYear,years,teacherName;
+    private DB_SQLiteDB dbHelper;
+    private SQLiteDatabase db;
 
     @Nullable
     @Override
@@ -41,6 +44,11 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        // 获取数据库
+        dbHelper = new DB_SQLiteDB(getActivity());
+        db = dbHelper.getSqliteObject(getActivity());
+
         // 获取SharedPreferences对象
         sharedPreferences = getActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
         student_id = sharedPreferences.getString("user_id", "");
@@ -103,8 +111,6 @@ public class ProfileFragment extends Fragment {
      * 通过学生ID从数据库中获取学生的个人信息
      */
     private void getStudentInfo() {
-        DB_SQLiteDatabaseHelper dbHelper = new DB_SQLiteDatabaseHelper(getActivity());
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
         // 执行查询
         String sql = "SELECT students.gender AS student_gender, teachers.gender AS teacher_gender, " +
                 "students.birthday AS student_birthday, teachers.birthday AS teacher_birthday" +
@@ -137,6 +143,16 @@ public class ProfileFragment extends Fragment {
 //                    ", startYear: " + startYear + ", years: " + years + ", teacherName: " + teacherName);
         }
         cursor.close();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        // Fragment被销毁时，关闭数据库连接
+        if (dbHelper != null) {
+            dbHelper.close();
+        }
     }
 
 }

@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.courseproj.Common.DB_MySQLConnectionUtil;
+import com.example.courseproj.Common.DB_SQLiteDB;
 import com.example.courseproj.Common.DB_SQLiteDatabaseHelper;
 import com.example.courseproj.Common.MD5;
 import com.example.courseproj.R;
@@ -44,7 +45,7 @@ public class AddStudentActivity extends AppCompatActivity {
     private EditText startYearEditText;
     private Spinner tutorSpinner;
     private String newStudentId;
-    private DB_SQLiteDatabaseHelper dbHelper;
+    private DB_SQLiteDB dbHelper;
     private SQLiteDatabase db;
 
     @Override
@@ -68,8 +69,8 @@ public class AddStudentActivity extends AppCompatActivity {
         yearsPicker.setMaxValue(5);
 
         // 获取数据库
-        dbHelper = new DB_SQLiteDatabaseHelper(this);
-        db = dbHelper.getReadableDatabase();
+        dbHelper = new DB_SQLiteDB(this);
+        db = dbHelper.getSqliteObject(this);
 
         // 获取导师数据
         List<String> tutors = getTutors();
@@ -281,7 +282,7 @@ public class AddStudentActivity extends AppCompatActivity {
             ContentValues values = new ContentValues();
             values.put("student_id", newStudentId);
             values.put("student_name", name);
-            values.put("student_password", password);
+            values.put("student_password", finalPassword);
             values.put("gender", gender);
             values.put("birthday", birthday);
             values.put("start_year", startYear);
@@ -298,4 +299,15 @@ public class AddStudentActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        // Activity被销毁时，关闭数据库连接
+        if (dbHelper != null) {
+            dbHelper.close();
+        }
+    }
+
 }
