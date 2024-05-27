@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.courseproj.Common.DB_MySQLConnectionUtil;
+import com.example.courseproj.Common.DB_SQLiteDB;
 import com.example.courseproj.Common.DB_SQLiteDatabaseHelper;
 import com.example.courseproj.Common.MD5;
 import com.example.courseproj.R;
@@ -26,7 +27,7 @@ import java.sql.SQLException;
 public class ChangePasswordActivity extends AppCompatActivity {
     LinearLayout layout;
     AnimationDrawable anim;
-    private DB_SQLiteDatabaseHelper dbHelper;
+    private DB_SQLiteDB dbHelper;
     private SQLiteDatabase db;
     private TextView tvStudentName, tvGender, tvBirthday, tvStartYear, tvStudentPassword, tvYears, tvTeacher;
     private EditText tvStudentId, editModifyPassword;
@@ -56,8 +57,9 @@ public class ChangePasswordActivity extends AppCompatActivity {
         trInput = findViewById(R.id.tr_input);
 
         // 获取数据库
-        dbHelper = new DB_SQLiteDatabaseHelper(this);
-        db = dbHelper.getReadableDatabase();
+        dbHelper = new DB_SQLiteDB(this);
+        db = dbHelper.getSqliteObject(this);
+
 
         // 查询学生信息
         btnQuery.setOnClickListener(v -> {
@@ -197,8 +199,8 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     String sql2 = "UPDATE students SET student_password = ? WHERE student_id = ?";
                     Object[] bindArgs = {modifyPassword, student_id};
                     db.execSQL(sql2, bindArgs);
-                    queryStudentInfo();
                     runOnUiThread(() -> {
+                        queryStudentInfo();
                         Toast.makeText(this, "修改成功", Toast.LENGTH_LONG).show();
                     });
                 } else {
@@ -224,6 +226,14 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 }
             }
         }).start();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        // 当你的Activity被销毁时，你应该关闭数据库连接
+        dbHelper.close();
     }
 
 }

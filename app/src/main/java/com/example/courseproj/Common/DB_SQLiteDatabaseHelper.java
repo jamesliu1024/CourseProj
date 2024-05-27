@@ -278,7 +278,6 @@ public class DB_SQLiteDatabaseHelper extends SQLiteOpenHelper {
                 "JOIN courses ON schedules.course_id = courses.course_id " +
                 "JOIN teachers ON schedules.teacher_id = teachers.teacher_id " +
                 "JOIN students s on scores.student_id = s.student_id");
-
     }
 
     @Override

@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.courseproj.Common.DB_MySQLConnectionUtil;
+import com.example.courseproj.Common.DB_SQLiteDB;
 import com.example.courseproj.Common.DB_SQLiteDatabaseHelper;
 import com.example.courseproj.Common.MD5;
 import com.example.courseproj.R;
@@ -30,7 +31,7 @@ public class AddCourseActivity extends AppCompatActivity {
     LinearLayout layout;
     AnimationDrawable anim;
     SharedPreferences sharedPreferences;
-    private DB_SQLiteDatabaseHelper dbHelper;
+    private DB_SQLiteDB dbHelper;
     private SQLiteDatabase db;
     private EditText courseNameEditText;
     private EditText courseCreditEditText;
@@ -72,8 +73,9 @@ public class AddCourseActivity extends AppCompatActivity {
         courseTimePicker.setMaxValue(8);
 
         // 获取数据库
-        dbHelper = new DB_SQLiteDatabaseHelper(this);
-        db = dbHelper.getReadableDatabase();
+        // 获取数据库
+        dbHelper = new DB_SQLiteDB(this);
+        db = dbHelper.getSqliteObject(this);
 
         // 获取任课教师数据
         List<String> tutors = getTeachers();
