@@ -44,8 +44,8 @@ public class AddStudentActivity extends AppCompatActivity {
     private EditText startYearEditText;
     private Spinner tutorSpinner;
     private String newStudentId;
-    DB_SQLiteDatabaseHelper dbHelper;
-    SQLiteDatabase db;
+    private DB_SQLiteDatabaseHelper dbHelper;
+    private SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,7 +174,7 @@ public class AddStudentActivity extends AppCompatActivity {
             tutors.add(id + " " + name);
 
             // TEST
-            Log.i("AddStudentActivity", "teacher_id: " + id + ", teacher_name: " + name);
+//            Log.i("AddStudentActivity", "teacher_id: " + id + ", teacher_name: " + name);
         }
 
         return tutors;
