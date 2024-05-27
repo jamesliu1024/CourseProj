@@ -7,26 +7,37 @@
               android:orientation="vertical"
               android:padding="15dp"
               android:id="@+id/bgLayout"
-              tools:context=".Admin.EditScoreActivity"
-        >
+              tools:context=".Admin.EditScoreActivity">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="修改成绩"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:paddingLeft="25dp"/>
+
     <!--修改成绩页面-->
     <!--admin_edit_score.xml-->
     <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="20dp">
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:text="学生学号："
-                android:textSize="18dp"
-                android:textStyle="bold"/>
+                android:textSize="18dp"/>
 
         <EditText
                 android:id="@+id/edit_student_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginEnd="20dp"
                 android:hint="请输入学生学号"
                 android:textSize="18sp"/>
     </TableRow>
@@ -34,6 +45,7 @@
     <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:layout_marginTop="10dp"
             android:gravity="center_horizontal">
 
@@ -42,14 +54,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="查询"
-                />
+                android:layout_marginEnd="50dp"
+                android:layout_gravity="center"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:background="@color/translucent_white"
+                android:textStyle="bold"/>
 
         <Button
                 android:id="@+id/btn_clear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="清空"
-                android:layout_marginLeft="50dp"/>
+                android:layout_marginStart="50dp"
+                android:layout_gravity="center"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:background="@color/translucent_white"
+                android:textStyle="bold"/>
     </TableRow>
 
     <ListView
