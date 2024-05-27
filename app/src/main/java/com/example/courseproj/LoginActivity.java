@@ -18,6 +18,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.courseproj.Admin.AdminActivity;
 import com.example.courseproj.Common.*;
 import com.example.courseproj.Student.StudentActivity;
 
@@ -237,7 +238,6 @@ public class LoginActivity extends AppCompatActivity {
 
                         handleLoginSuccess(user_id, identity, user_name, gender, birthday, start_time, start_year, years);
                         if (identity == 0) {
-                            // TODO 跳转到学生界面
                             Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
                             startActivity(intent);
                             finish();
@@ -250,12 +250,11 @@ public class LoginActivity extends AppCompatActivity {
 //                            Toast.makeText(LoginActivity.this, "老师界面", Toast.LENGTH_SHORT).show();
                             Log.i("LoginActivity", "老师界面");
                         } else if (identity == 2) {
-                            // TODO 跳转到管理员界面
-                            // Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
-                            // startActivity(intent);
-//                                    finish();
+                            Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                            startActivity(intent);
+                            finish();
 //                            Toast.makeText(LoginActivity.this, "管理员界面", Toast.LENGTH_SHORT).show();
-                            Log.i("LoginActivity", "管理员界面");
+//                            Log.i("LoginActivity", "管理员界面");
                         }
 
                     } else {
