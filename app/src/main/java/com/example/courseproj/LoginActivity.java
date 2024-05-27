@@ -99,6 +99,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 identity = parent.getSelectedItemPosition();
+                Log.i("LoginActivity", "identity: " + identity);
+                // 如果获取的身份是1，老师改为管理员的身份
+                if (identity == 1) {
+                    identity = 2;
+                }else {
+                    identity = 0; // 默认学生
+                }
+                Log.i("LoginActivity", "修改：identity: " + identity);
 
                 // TEST 显示用户选择的身份
 //                String ii = String.valueOf(identity);
@@ -244,13 +252,15 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
 //                                    Toast.makeText(LoginActivity.this, "学生界面", Toast.LENGTH_SHORT).show();
-                        } else if (identity == 1) {
+                        }
+                        else if (identity == 1) {
                             // TODO 跳转到老师界面
                             // Intent intent = new Intent(LoginActivity.this, TeacherActivity.class);
                             // startActivity(intent);
 //                                    finish();
 //                            Toast.makeText(LoginActivity.this, "老师界面", Toast.LENGTH_SHORT).show();
                             Log.i("LoginActivity", "老师界面");
+
                         } else if (identity == 2) {
                             Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                             startActivity(intent);
