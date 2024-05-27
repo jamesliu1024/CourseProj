@@ -1,55 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/animation_list"
-    android:orientation="vertical"
-    android:padding="15dp"
-    >
-<!--修改成绩页面-->
-<!--admin_edit_score.xml-->
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:background="@drawable/animation_list"
+              android:orientation="vertical"
+              android:padding="15dp"
+              android:id="@+id/bgLayout"
+              tools:context=".Admin.EditScoreActivity"
+        >
+    <!--修改成绩页面-->
+    <!--admin_edit_score.xml-->
     <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="学生学号："
-            android:textSize="18dp"
-            android:textStyle="bold"/>
-        <EditText
-            android:id="@+id/edit_text_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="请输入学生学号"
-            android:textSize="18sp"/>
+            android:layout_marginTop="40dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="学生学号："
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
+        <EditText
+                android:id="@+id/edit_text_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入学生学号"
+                android:textSize="18sp"/>
     </TableRow>
 
     <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal">
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="查询"
-            />
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="查询"
+                />
+
         <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="清空"
-            android:layout_marginLeft="50dp"/>
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="清空"
+                android:layout_marginLeft="50dp"/>
     </TableRow>
 
     <ListView
             android:id="@+id/lv_courses"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-    />
+            />
 
 </LinearLayout>
