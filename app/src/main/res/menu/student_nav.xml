@@ -6,10 +6,10 @@
             android:title="课程表" />
     <item
             android:id="@+id/navigation_addCourses"
-            android:icon="@drawable/ic_courses"
+            android:icon="@drawable/add_course"
             android:title="选课" />
     <item
             android:id="@+id/navigation_profile"
-            android:icon="@drawable/ic_courses"
+            android:icon="@drawable/personal_info"
             android:title="个人信息" />
 </menu>

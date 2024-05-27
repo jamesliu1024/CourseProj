@@ -85,9 +85,9 @@
                     android:gravity="center">
 
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_courses" />
+                    android:layout_width="53dp"
+                    android:layout_height="47dp"
+                    android:src="@drawable/hao" />
 
                 <TextView
                         android:layout_width="wrap_content"
@@ -107,7 +107,7 @@
                 <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_courses" />
+                        android:src="@drawable/student" />
 
                 <TextView
                         android:layout_width="wrap_content"
@@ -128,9 +128,9 @@
                     android:gravity="center">
 
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_courses" />
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:src="@drawable/modify_score" />
 
                 <TextView
                         android:layout_width="wrap_content"
@@ -150,7 +150,7 @@
                 <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_courses" />
+                        android:src="@drawable/modify_pass" />
 
                 <TextView
                         android:layout_width="wrap_content"
