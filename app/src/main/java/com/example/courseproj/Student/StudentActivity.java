@@ -42,23 +42,7 @@ public class StudentActivity extends AppCompatActivity {
 
         initView();
 
-        // 展示当前的学年和学期
-        TextView toolbar_title = findViewById(R.id.toolbar_title);
-        // 获取当前年月份
-        current_year = Integer.parseInt(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new Date()));
-        current_month = Integer.parseInt(new SimpleDateFormat("MM", Locale.getDefault()).format(new Date()));
-        // 判断当前月份，如果是2-8月，上年度的下半学期1，9-1月是当前年度的上半学期0
-        if (current_month >= 2 && current_month <= 8) {
-            current_year = current_year - 1;
-            current_term = 1;
-        } else {
-            current_term = 0;
-        }
-        if (current_term == 1) {
-            toolbar_title.setText(current_year + "-" + (current_year + 1) + "学年\t下学期");
-        } else {
-            toolbar_title.setText(current_year + "-" + (current_year + 1) + "学年\t上学期");
-        }
+
         // 创建一个Bundle对象
         Bundle bundle = new Bundle();
         // 将current_year、current_month和current_term放入Bundle
@@ -114,6 +98,24 @@ public class StudentActivity extends AppCompatActivity {
         }
 
         layout = findViewById(R.id.bgLayout);
+
+        // 展示当前的学年和学期
+        TextView toolbar_title = findViewById(R.id.toolbar_title);
+        // 获取当前年月份
+        current_year = Integer.parseInt(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new Date()));
+        current_month = Integer.parseInt(new SimpleDateFormat("MM", Locale.getDefault()).format(new Date()));
+        // 判断当前月份，如果是2-8月，上年度的下半学期1，9-1月是当前年度的上半学期0
+        if (current_month >= 2 && current_month <= 8) {
+            current_year = current_year - 1;
+            current_term = 1;
+        } else {
+            current_term = 0;
+        }
+        if (current_term == 1) {
+            toolbar_title.setText(current_year + "-" + (current_year + 1) + "学年\t下学期");
+        } else {
+            toolbar_title.setText(current_year + "-" + (current_year + 1) + "学年\t上学期");
+        }
 
         // 设置渐变动画
         anim = (AnimationDrawable) layout.getBackground();
