@@ -35,6 +35,11 @@
     <string name="course5">上 课 周 数：</string>
     <string name="course6">课 程 类 型：</string>
     <string name="course7">你的分数:</string>
+    <string name="admin1">管理员ID:</string>
+    <string name="admin2">管理员姓名:</string>
+    <string name="admin3">性别:</string>
+    <string name="admin4">生日:</string>
+    <string name="admin5">入职时间:</string>
     <string-array name="identity_array">
         <item>学生</item>
         <item>老师</item>
