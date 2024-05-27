@@ -15,8 +15,7 @@
             android:paddingTop="16dp"
             android:paddingBottom="20dp"
             android:background="@color/colorPrimaryDarkHalfTranslucent"
-            android:textColor="#FFFFFF"
-            />
+            android:textColor="#FFFFFF"/>
 
     <ImageView
             android:layout_width="150dp"

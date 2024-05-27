@@ -7,16 +7,14 @@
               android:layout_height="match_parent"
               tools:context=".Admin.AdminActivity"
               android:id="@+id/bgLayout"
-              android:background="@drawable/animation_list"
-        >
+              android:background="@drawable/animation_list">
 
     <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_student"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimaryHalfTranslucent"
-            android:paddingTop="@dimen/visible_horizontal_size"
-            >
+            android:paddingTop="@dimen/visible_horizontal_size">
 
         <TextView
                 android:id="@+id/toolbar_title"
@@ -28,241 +26,257 @@
                 android:textSize="20sp"/>
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- 管理员个人信息 -->
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:paddingBottom="20dp"
+            android:background="@color/colorPrimaryDarkHalfTranslucent"
+            android:textColor="#FFFFFF"/>
+
+    <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@mipmap/school_logo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:contentDescription="@string/seig_logo"/>
+
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="16dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+            android:background="@color/translucent_white">
 
-        <TableRow
+        <!-- 管理员个人信息 -->
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="20dp">
+                android:orientation="vertical"
+                android:paddingTop="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
-            <TextView
-                    android:id="@+id/admin1"
-                    android:layout_width="wrap_content"
+            <TableRow
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/admin1"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+                    android:layout_marginStart="20dp">
 
-            <TextView
-                    android:id="@+id/admin_id"
-                    android:layout_width="wrap_content"
+                <TextView
+                        android:id="@+id/admin1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/admin1"
+                        android:textSize="16sp"/>
+
+                <TextView
+                        android:id="@+id/admin_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="55dp"
+                        android:textSize="18sp"/>
+            </TableRow>
+
+            <TableRow
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                />
-        </TableRow>
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp">
 
-        <TableRow
+                <TextView
+                        android:id="@+id/admin2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/admin2"
+                        android:textSize="16sp"/>
+
+                <TextView
+                        android:id="@+id/admin_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="55dp"
+                        android:textSize="18sp"/>
+            </TableRow>
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp">
+
+                <TextView
+                        android:id="@+id/admin3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/admin3"
+                        android:textSize="16sp"/>
+
+                <TextView
+                        android:id="@+id/admin_gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="70dp"
+                        android:textSize="18sp"/>
+            </TableRow>
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp">
+
+                <TextView
+                        android:id="@+id/admin4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/admin4"
+                        android:textSize="16sp"/>
+
+                <TextView
+                        android:id="@+id/admin_birthday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="70dp"
+                        android:textSize="18sp"/>
+            </TableRow>
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp">
+
+                <TextView
+                        android:id="@+id/admin5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/admin5"
+                        android:textSize="16sp"/>
+
+                <TextView
+                        android:id="@+id/admin_start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginBottom="20dp"
+                        android:textSize="18sp"/>
+            </TableRow>
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#000000"/>
+
+        </LinearLayout>
+
+        <!-- 功能模块 -->
+        <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="15dp">
+                android:stretchColumns="*"
+                android:padding="16dp">
 
-            <TextView
-                    android:id="@+id/admin2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/admin2"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+            <TableRow>
 
-            <TextView
-                    android:id="@+id/admin_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textStyle="bold"/>
-        </TableRow>
+                <!-- 添加课程 -->
+                <LinearLayout
+                        android:id="@+id/add_course_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
 
-        <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="15dp">
+                    <ImageView
+                            android:layout_width="53dp"
+                            android:layout_height="47dp"
+                            android:src="@drawable/hao" />
 
-            <TextView
-                    android:id="@+id/admin3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/admin3"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="添加课程"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+                </LinearLayout>
 
-            <TextView
-                    android:id="@+id/admin_gender"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-        </TableRow>
+                <!-- 添加学生 -->
+                <LinearLayout
+                        android:id="@+id/add_student_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
 
-        <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="15dp">
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/student" />
 
-            <TextView
-                    android:id="@+id/admin4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/admin4"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="添加学生"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+                </LinearLayout>
+            </TableRow>
 
-            <TextView
-                    android:id="@+id/admin_birthday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-        </TableRow>
+            <TableRow>
 
-        <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="20dp">
+                <!-- 修改成绩 -->
+                <LinearLayout
+                        android:id="@+id/edit_score_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
 
-            <TextView
-                    android:id="@+id/admin5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/admin5"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+                    <ImageView
+                            android:layout_width="52dp"
+                            android:layout_height="48dp"
+                            android:src="@drawable/modify_score" />
 
-            <TextView
-                    android:id="@+id/admin_start_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-        </TableRow>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="#000000"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="修改成绩"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+                </LinearLayout>
 
+                <!-- 修改密码 -->
+                <LinearLayout
+                        android:id="@+id/change_password_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/modify_pass" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="修改密码"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+                </LinearLayout>
+            </TableRow>
+
+        </TableLayout>
     </LinearLayout>
 
-    <!-- 功能模块 -->
-    <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:stretchColumns="*"
-            android:padding="16dp">
-
-        <TableRow>
-
-            <!-- 添加课程 -->
-            <LinearLayout
-                    android:id="@+id/add_course_layout"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-                <ImageView
-                    android:layout_width="53dp"
-                    android:layout_height="47dp"
-                    android:src="@drawable/hao" />
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="添加课程"
-                    android:textSize="18sp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-
-            <!-- 添加学生 -->
-            <LinearLayout
-                    android:id="@+id/add_student_layout"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-                <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/student" />
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="添加学生"
-                    android:textSize="18sp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-        </TableRow>
-
-        <TableRow>
-
-            <!-- 修改成绩 -->
-            <LinearLayout
-                    android:id="@+id/edit_score_layout"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-                <ImageView
-                    android:layout_width="52dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/modify_score" />
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="修改成绩"
-                    android:textSize="18sp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-
-            <!-- 修改密码 -->
-            <LinearLayout
-                    android:id="@+id/change_password_layout"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-                <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/modify_pass" />
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="修改密码"
-                    android:textSize="18sp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-        </TableRow>
-
-    </TableLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="#000000"/>
     <!--    退出登陆按钮-->
     <Button
             android:id="@+id/btn_logout"
@@ -276,7 +290,6 @@
             android:padding="10dp"
             android:layout_marginBottom="20dp"
             android:background="@color/translucent_white"
-
-        android:textStyle="bold"/>
+            android:textStyle="bold"/>
 
 </LinearLayout>

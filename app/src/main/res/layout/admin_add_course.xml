@@ -7,245 +7,293 @@
               android:orientation="vertical"
               android:padding="15dp"
               android:id="@+id/bgLayout"
-              tools:context=".Admin.AddCourseActivity"
-        >
-    <!--添加课程页面-->
-    <!--    fragment_add_courses.xml-->
-    <TableRow
+              tools:context=".Admin.AddCourseActivity">
+    <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:text="添加课程"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:paddingLeft="25dp"/>
 
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="课程名称："
-                android:textSize="18dp"
-                android:textStyle="bold"/>
-
-        <EditText
-                android:id="@+id/course_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="请输入课程名称"
-                android:textSize="18sp"/>
-    </TableRow>
-
-    <TableRow
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="学分："
-                android:textSize="18dp"
-                android:textStyle="bold"/>
-
-        <EditText
-                android:id="@+id/course_credit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="请输入学分"
-                android:textSize="18sp"/>
-    </TableRow>
-
-    <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="学时："
-                android:textSize="18dp"
-                android:textStyle="bold"/>
-
-        <EditText
-                android:id="@+id/course_hour"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="请输入学时"
-                android:textSize="18sp"/>
-    </TableRow>
-
-    <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="周数："
-                android:textSize="18dp"
-                android:textStyle="bold"/>
-
-        <EditText
-                android:id="@+id/course_week"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="请输入周数"
-                android:textSize="18sp"/>
-    </TableRow>
-
-    <TableRow
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            >
+            android:background="@color/translucent_white">
 
-        <TextView
-                android:layout_width="wrap_content"
+        <!--添加课程页面-->
+        <!--    fragment_add_courses.xml-->
+        <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="类型："
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical"/>
+                android:layout_marginTop="10dp">
 
-        <RadioGroup
-                android:id="@+id/course_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-            <RadioButton
-                    android:id="@+id/course_type_0"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="必修"/>
-
-            <RadioButton
-                    android:id="@+id/course_type_1"
+            <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="选修"/>
-        </RadioGroup>
-    </TableRow>
+                    android:layout_marginStart="20dp"
+                    android:text="课程名称："
+                    android:textSize="18dp"/>
 
-    <!-- 任课教师 -->
-    <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp">
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="任课教师："
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-
-        <Spinner
-                android:id="@+id/teacher_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-    </TableRow>
-
-    <!-- 上课日期 -->
-    <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp">
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="上课日期："
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-
-        <NumberPicker
-                android:id="@+id/course_day_picker"
-                android:layout_width="80dp"
-                android:layout_height="100dp"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="上课节数："
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-
-        <NumberPicker
-                android:id="@+id/course_time_picker"
-                android:layout_width="80dp"
-                android:layout_height="100dp"/>
-
-    </TableRow>
-
-    <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="上课地点："
-                android:textSize="18dp"
-                android:textStyle="bold"/>
-
-        <EditText
-                android:id="@+id/course_place"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="请输入地点"
-                android:textSize="18sp"/>
-    </TableRow>
-
-    <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="上课学年："
-                android:textSize="18dp"
-                android:textStyle="bold"/>
-
-        <EditText
-                android:id="@+id/course_year"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="格式：yyyy"
-                android:textSize="18sp"/>
-    </TableRow>
-
-    <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="学年学期："
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical"/>
-
-        <RadioGroup
-                android:id="@+id/course_term"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-            <RadioButton
-                    android:id="@+id/course_term_0"
+            <EditText
+                    android:id="@+id/course_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="上半学期"/>
+                    android:gravity="center"
+                    android:layout_marginEnd="20dp"
+                    android:hint="请输入课程名称"
+                    android:textSize="18sp"/>
+        </TableRow>
 
-            <RadioButton
-                    android:id="@+id/course_term_1"
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+            <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="下半学期"/>
-        </RadioGroup>
-    </TableRow>
+                    android:layout_marginStart="20dp"
+                    android:text="学        分："
+                    android:textSize="18dp"/>
+
+            <EditText
+                    android:id="@+id/course_credit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="center"
+                    android:hint="请输入学分"
+                    android:textSize="18sp"/>
+        </TableRow>
+
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="学        时："
+                    android:textSize="18dp"/>
+
+            <EditText
+                    android:id="@+id/course_hour"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="center"
+                    android:hint="请输入学时"
+                    android:textSize="18sp"/>
+        </TableRow>
+
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="周        数："
+                    android:textSize="18dp"/>
+
+            <EditText
+                    android:id="@+id/course_week"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="center"
+                    android:hint="请输入周数"
+                    android:textSize="18sp"/>
+        </TableRow>
+
+        <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="类        型："
+                    android:textSize="18dp"
+                    android:layout_gravity="center_vertical"/>
+
+            <RadioGroup
+                    android:id="@+id/course_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:orientation="horizontal">
+
+                <RadioButton
+                        android:id="@+id/course_type_0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:textSize="16dp"
+                        android:text="必修"/>
+
+                <RadioButton
+                        android:id="@+id/course_type_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:textSize="16dp"
+                        android:text="选修"/>
+            </RadioGroup>
+        </TableRow>
+
+        <!-- 任课教师 -->
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="5dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="任课教师："
+                    android:textSize="18dp"/>
+
+            <Spinner
+                    android:id="@+id/teacher_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:textSize="18sp"/>
+        </TableRow>
+
+        <!-- 上课日期 -->
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="5dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:text="上课日期："
+                    android:textSize="18dp"/>
+
+            <NumberPicker
+                    android:id="@+id/course_day_picker"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="40dp"
+                    android:text="上课节数："
+                    android:textSize="18dp"/>
+
+            <NumberPicker
+                    android:id="@+id/course_time_picker"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"/>
+
+        </TableRow>
+
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="上课地点："
+                    android:textSize="18dp"/>
+
+            <EditText
+                    android:id="@+id/course_place"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginEnd="20dp"
+                    android:hint="请输入地点"
+                    android:textSize="18sp"/>
+        </TableRow>
+
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="上课学年："
+                    android:textSize="18dp"/>
+
+            <EditText
+                    android:id="@+id/course_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="center"
+                    android:hint="格式：yyyy"
+                    android:textSize="18sp"/>
+        </TableRow>
+
+        <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="学年学期："
+                    android:textSize="18dp"
+                    android:layout_gravity="center_vertical"/>
+
+            <RadioGroup
+                    android:id="@+id/course_term"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:orientation="horizontal">
+
+                <RadioButton
+                        android:id="@+id/course_term_0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:textSize="16dp"
+                        android:text="上半学期"/>
+
+                <RadioButton
+                        android:id="@+id/course_term_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:textSize="16dp"
+                        android:text="下半学期"/>
+
+            </RadioGroup>
+        </TableRow>
+    </LinearLayout>
 
     <TableRow
             android:layout_width="match_parent"
@@ -258,14 +306,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="提交"
-                />
+                android:layout_gravity="center"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:background="@color/translucent_white"
+                android:textStyle="bold"/>
 
         <Button
                 android:id="@+id/btn_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="返回"
-                android:layout_marginLeft="50dp"/>
+                android:layout_marginLeft="50dp"
+                android:layout_gravity="center"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:background="@color/translucent_white"
+                android:textStyle="bold"/>
     </TableRow>
-
 </LinearLayout>
