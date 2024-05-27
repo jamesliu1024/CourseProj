@@ -19,6 +19,10 @@ import com.example.courseproj.Common.DB_SQLiteDatabaseHelper;
 import com.example.courseproj.LoginActivity;
 import com.example.courseproj.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class AdminActivity extends AppCompatActivity {
     LinearLayout layout;
     AnimationDrawable anim;
@@ -29,6 +33,8 @@ public class AdminActivity extends AppCompatActivity {
             adminStartTimeTextView;
     private LinearLayout addCourseLayout, addStudentLayout,
             editScoreLayout, changePasswordLayout;
+    int current_year, current_month, current_term;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +136,24 @@ public class AdminActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
             window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
+
+        // 展示当前的学年和学期
+        TextView toolbar_title = findViewById(R.id.toolbar_title);
+        // 获取当前年月份
+        current_year = Integer.parseInt(new SimpleDateFormat("yyyy", Locale.getDefault()).format(new Date()));
+        current_month = Integer.parseInt(new SimpleDateFormat("MM", Locale.getDefault()).format(new Date()));
+        // 判断当前月份，如果是2-8月，上年度的下半学期1，9-1月是当前年度的上半学期0
+        if (current_month >= 2 && current_month <= 8) {
+            current_year = current_year - 1;
+            current_term = 1;
+        } else {
+            current_term = 0;
+        }
+        if (current_term == 1) {
+            toolbar_title.setText(current_year + "-" + (current_year + 1) + "学年\t下学期");
+        } else {
+            toolbar_title.setText(current_year + "-" + (current_year + 1) + "学年\t上学期");
         }
 
         layout = findViewById(R.id.bgLayout);
