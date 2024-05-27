@@ -33,82 +33,101 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingTop="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
         <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="50dp">
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="20dp">
 
             <TextView
                     android:id="@+id/admin1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/admin1"/>
+                    android:text="@string/admin1"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <TextView
                     android:id="@+id/admin_id"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                />
         </TableRow>
 
         <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="50dp">
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp">
 
             <TextView
                     android:id="@+id/admin2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/admin2"/>
+                    android:text="@string/admin2"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <TextView
                     android:id="@+id/admin_name"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
         </TableRow>
 
         <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="50dp">
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp">
 
             <TextView
                     android:id="@+id/admin3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/admin3"/>
+                    android:text="@string/admin3"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <TextView
                     android:id="@+id/admin_gender"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
         </TableRow>
 
         <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="50dp">
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp">
 
             <TextView
                     android:id="@+id/admin4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/admin4"/>
+                    android:text="@string/admin4"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <TextView
                     android:id="@+id/admin_birthday"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
         </TableRow>
 
         <TableRow
@@ -116,19 +135,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginBottom="20dp"
-                android:layout_marginTop="50dp">
+                android:layout_marginTop="20dp">
 
             <TextView
                     android:id="@+id/admin5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/admin5"/>
+                    android:text="@string/admin5"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <TextView
                     android:id="@+id/admin_start_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
         </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#000000"/>
+
     </LinearLayout>
 
     <!-- 功能模块 -->
@@ -157,7 +183,9 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="添加课程" />
+                        android:text="添加课程"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
             <!-- 添加学生 -->
@@ -177,7 +205,9 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="添加学生" />
+                        android:text="添加学生"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
             </LinearLayout>
         </TableRow>
 
@@ -193,14 +223,16 @@
                     android:gravity="center">
 
                 <ImageView
-                    android:layout_width="match_parent"
+                    android:layout_width="52dp"
                     android:layout_height="48dp"
                     android:src="@drawable/modify_score" />
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="修改成绩" />
+                        android:text="修改成绩"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
             <!-- 修改密码 -->
@@ -220,12 +252,17 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="修改密码" />
+                        android:text="修改密码"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
             </LinearLayout>
         </TableRow>
 
     </TableLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#000000"/>
     <!--    退出登陆按钮-->
     <Button
             android:id="@+id/btn_logout"
@@ -235,10 +272,11 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:textColor="@color/dark_gray"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:padding="10dp"
             android:layout_marginBottom="20dp"
             android:background="@color/translucent_white"
-            />
+
+        android:textStyle="bold"/>
 
 </LinearLayout>
