@@ -196,10 +196,10 @@
         android:text="@string/Logout"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textColor="@color/dark_gray"
+        android:textSize="18sp"
         android:padding="10dp"
-        android:layout_marginBottom="20dp"
-        />
+        android:background="@color/translucent_white"
+        android:textStyle="bold"/>
 
 </LinearLayout>

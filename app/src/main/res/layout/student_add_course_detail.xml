@@ -156,8 +156,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="确认选课"
-                android:textSize="16sp"
-                android:textColor="@color/white"
+                android:textColor="@color/dark_gray"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:background="@color/translucent_white"
+                android:textStyle="bold"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="20dp"/>
 
